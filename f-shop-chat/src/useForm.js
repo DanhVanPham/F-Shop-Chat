@@ -7,7 +7,7 @@ const useForm = (callback, validate) => {
     })
     const [errors, setErrors] = useState({})
 
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    // const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleChange = e => {
         const { name, value } = e.target
@@ -20,28 +20,35 @@ const useForm = (callback, validate) => {
     const handleSubmit = e => {
         e.preventDefault();
         setErrors(validate(values))
-
-        if (Object.keys(errors).length === 0 && isSubmitting) {
+        console.log(values)
+        if (Object.keys(errors).length === 0) {
             async function fetchLogin() {
-                console.log("sfsdfds");
                 const requestOptions = {
                     method: 'POST',
+                    mode: 'cors',
+                    credentials: 'same-origin',
                     headers: {
+                        'Content-Type': 'application/json',
                         'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Accept-Encoding': 'gzip, deflate, br',
+                        'Connection': 'keep-alive'
+
                     },
-                    body: JSON.stringify({ values })
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer',
+                    body: JSON.stringify(values)
                 };
 
                 console.log(requestOptions)
                 // const requestUrl = 'http://localhost:8082/v1/api/login';
                 const response = await fetch(`http://localhost:8082/v1/api/login`, requestOptions)
+                console.log(response)
                 if (response.status !== 200) {
                     setErrors("Login failed");
                 } else {
-                    const responseJSon = await response.json();
-                    console.log(responseJSon);
-                    setIsSubmitting(true);
+                    // const responseJSon = await response.json();
+                    // console.log(responseJSon);
+                    // setIsSubmitting(true);
                     callback();
                 }
             }
