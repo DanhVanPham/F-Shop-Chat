@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from './Components/input';
-import MessageList from './Components/message-list';
-import UserBox from './Components/user-online';
+import Input from './components/input';
+import MessageList from './components/message-list';
+import UserBox from './components/user-online';
 import './Chat.css';
 
 Chat.propTypes = {
