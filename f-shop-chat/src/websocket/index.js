@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import SockJsClient from 'react-stomp';
 
 const SOCKET_URL = "http://localhost:8080/websocket-chat/";
-export const WebSocket = ({onMessageReceived}) => {
+export const WebSocketClient = (props) => {
+    const clientRef = createRef();
+    
     return <SockJsClient
         url={SOCKET_URL}
         topics={['/topic/user']}
@@ -11,8 +13,11 @@ export const WebSocket = ({onMessageReceived}) => {
             console.log("Disconnected");
         }}
         onMessage={
-            (msg) => onMessageReceived(msg)
+            (msg) => props.onMessageReceived(msg)
         }
         debug={false}
+        ref={(client) => {
+            clientRef = client;
+        }}
     />
 }
