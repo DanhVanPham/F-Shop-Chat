@@ -1,8 +1,7 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import '../MessageItem/style.css';
 
-
-function messageItem(props) {
+function MessageItem(props) {
     return (
         <li className={props.user ? "message right" : "message left"}>
             <div class="avatar"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" /></div>
@@ -14,4 +13,4 @@ function messageItem(props) {
     );
 }
 
-export default messageItem;
+export default MessageItem;
