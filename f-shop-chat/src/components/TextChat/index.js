@@ -4,11 +4,11 @@ import '../TextChat/style.css';
 
 function TextChat() {
     return (
-        <div class="bottom_wrapper">
-            <form action="#" class="form" >
+        <div className="bottom_wrapper">
+            <form action="#" className="form" >
                 <TextField />
-                <div class="send_message" >
-                    <div class="icon"><button type="submit" class="btn-send"><i class="fa fa-paper-plane fa-2x"></i></button></div>
+                <div className="send_message" >
+                    <div className="icon"><button type="submit" className="btn-send"><i className="fa fa-paper-plane fa-2x"></i></button></div>
                 </div>
             </form>
         </div>

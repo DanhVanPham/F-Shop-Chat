@@ -10,15 +10,15 @@ ChatBox.propTypes = {
 
 function ChatBox() {
     return (
-        <div class="chat-box">
-            <div class="chat-box-header">
-                <div class="user-icon"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" /></div>
-                <div class="user-name">Jasoe Doe</div>
+        <div className="chat-box">
+            <div className="chat-box-header">
+                <div className="user-icon"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" /></div>
+                <div className="user-name">Jasoe Doe</div>
             </div>
-            <div class="chat-box-message">
+            <div className="chat-box-message">
                 <MessageList user={true} />
             </div>
-            <div class="chat-box-input">
+            <div className="chat-box-input">
                 <Input />
             </div>
         </div>

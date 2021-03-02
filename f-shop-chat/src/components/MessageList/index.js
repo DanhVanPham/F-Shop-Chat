@@ -4,7 +4,7 @@ import '../MessageList/style.css';
 
 function MessageList(props) {
     return (
-        <ul class="messages">
+        <ul className="messages">
             <Message user={false} />
             <Message user={true} />
             <Message user={false} />

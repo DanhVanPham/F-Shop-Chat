@@ -1,16 +1,16 @@
 import React from 'react';
-import Drawer from '../../components/Drawer/index';
-import ChatBox from '../../components/ChatBox/index';
+import Drawer from '../../Components/Drawer/index';
+import ChatBox from '../../Components/ChatBox/index';
 // import Input from '../../components/TextField/index';
 import '../Home/style.css';
 
 function Home() {
     return (
-        <div class="chat_window">
-            <div class="chat_window_left">
+        <div className="chat_window">
+            <div className="chat_window_left">
                 <Drawer />
             </div>
-            <div class="chat_window_middle">
+            <div className="chat_window_middle">
                 <ChatBox />
             </div>
         </div>
