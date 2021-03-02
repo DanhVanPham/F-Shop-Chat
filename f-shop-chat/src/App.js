@@ -18,7 +18,7 @@ function App() {
     clientRef.sendMessage('/app_chat/user_all', JSON.stringify({
       name: "cc",
       content: message
-    }));
+  }));
   }
 
   return (
@@ -30,8 +30,8 @@ function App() {
           <p>{msg.content}</p>
         </div>
       })}
-      <input value={message} onChange={e => setMessage(prevState => e.target.value)} />
-      <button onClick={submitHandler}>Send</button>
+        <input value={message} onChange={e => setMessage(prevState => e.target.value)} />
+        <button onClick={submitHandler}>Send</button>
       <SockJsClient
         url={SOCKET_URL}
         topics={['/topic/user']}
