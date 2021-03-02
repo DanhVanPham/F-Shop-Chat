@@ -8,13 +8,13 @@ class AuthenticationService {
     }
 
     //logout
-    logout = async (username) => {
-        return await post(`/users/${username}/logout`, {}, {}, {});
+    logout = (username) => {
+        return post(`/users/${username}/logout`, {}, {}, {});
     }
 
     //get users
-    getUser = async (username) => {
-        return await get(`/users/${username}`, {}, {});
+    getUser = (username) => {
+        return get(`/users/${username}`, {}, {});
     }
 }
 

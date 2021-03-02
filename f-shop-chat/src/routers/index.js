@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch } from 'react-router-dom';
-import { Route, Router } from 'react-router';
-import { Login } from '../containers/Login';
-import { Chat } from '../containers/Home';
+import { Route } from 'react-router';
+import { Login } from '../containers/Login/index';
+import { Chat } from '../containers/Home/index';
 import { NotFound } from '../containers/NotFound';
 
 
@@ -18,7 +18,7 @@ const routes = [
         component: NotFound
     },
     {
-        path: "/chat/:room",
+        path: "/chat",
         name: "Chat",
         component: Chat
     },

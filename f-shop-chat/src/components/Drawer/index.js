@@ -36,195 +36,195 @@ function Drawer() {
         }
     }, [window.innerWidth]);
     return (
-        <div class="user_online_box">
-            <div class="header-user">
-                <div class="user-avatar">
-                    <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                    <div class="app-title">Chat</div>
+        <div className="user_online_box">
+            <div className="header-user">
+                <div className="user-avatar">
+                    <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                    <div className="app-title">Chat</div>
                 </div>
-                <div class="user-features">
-                    <div class="icon icon-drop"><a href="#"><i class="fa fa-caret-down fa-2x"></i></a></div>
-                    <div class="icon icon-video"><a href="#"><span class="iconify" data-icon="mdi-video-plus" data-inline="false"></span></a></div>
-                    <div class="icon icon-plus"><a href="#"><i class="fa fa-plus-square fa-2x"></i></a></div>
-                    <div class="icon icon-menu"><a href="javascript:void(0)" onClick={useScriptMenu}><i class="fa fa-bars fa-2x"></i></a></div>
+                <div className="user-features">
+                    <div className="icon icon-drop"><a href="#"><i className="fa fa-caret-down fa-2x"></i></a></div>
+                    <div className="icon icon-video"><a href="#"><span className="iconify" data-icon="mdi-video-plus" data-inline="false"></span></a></div>
+                    <div className="icon icon-plus"><a href="#"><i className="fa fa-plus-square fa-2x"></i></a></div>
+                    <div className="icon icon-menu"><a href="javascript:void(0)" onClick={useScriptMenu}><i className="fa fa-bars fa-2x"></i></a></div>
                 </div>
-                <div class="text-search">
+                <div className="text-search">
                     <form action="#">
-                        <div class="message_input_wrapper">
-                            <input type="text" class="message_input" placeholder="Tìm kiếm trên Messenger" />
+                        <div className="message_input_wrapper">
+                            <input type="text" className="message_input" placeholder="Tìm kiếm trên Messenger" />
                         </div>
                     </form>
                 </div>
             </div>
             <div className="list_user_box" id="list_user">
-                <div class="icon-close"><a href="javascript:void(0)" class="link-close" onClick={useScriptMenu}>X</a></div>
-                <a class="list-group-item active" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <div className="icon-close"><a href="javascript:void(0)" className="link-close" onClick={useScriptMenu}>X</a></div>
+                <a className="list-group-item active" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
-                <a class="list-group-item" href="#">
-                    <div class="media"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" class="avatar" />
-                        <div class="media-body">
-                            <div class="media-title">
-                                <h6 class="user-name">Jason Doe</h6><small class="date">25 Dec</small>
+                <a className="list-group-item" href="#">
+                    <div className="media"><img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" className="avatar" />
+                        <div className="media-body">
+                            <div className="media-title">
+                                <h6 className="user-name">Jason Doe</h6><small className="date">25 Dec</small>
                             </div>
-                            <p class="newest_messages">Hello, What your name?</p>
+                            <p className="newest_messages">Hello, What your name?</p>
                         </div>
                     </div>
                 </a>
