@@ -1,9 +1,16 @@
-* {
+* {  
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
-  input:focus,
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+  /* input:focus,
   select:focus,
   textarea:focus,
   button:focus {
@@ -71,4 +78,4 @@
   .update {
     text-align: center;
     vertical-align: middle;
-  }
+  } */

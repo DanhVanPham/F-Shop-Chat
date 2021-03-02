@@ -1,0 +1,45 @@
+.chat_window {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 24vw 76vw;
+}
+
+.chat_window .chat_window_left {
+    background-color: white;
+}
+
+.chat_window .chat_window_middle {
+    background-color: white;
+    border-left: 1px solid #Dee1e2;
+    border-right: 1px solid #Dee1e2;
+    height: 100vh;
+}
+
+@media only screen and (max-width: 1000px) {
+    .chat_window {
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-rows: 14vh 86vh;
+        grid-template-columns: 100vw;
+    }
+    
+    .chat_window .chat_window_left {
+        background-color: white;
+        width: 100vw;
+    }
+    
+    .chat_window .chat_window_middle {
+        background-color: white;
+        border-top: 1px solid #Dee1e2;
+        border-left: none;
+        border-right: none;
+        width: 100vw;
+        height: 86vh;
+        display: grid;
+        grid-template-rows: 11vh 68vh 7vh;
+    }
+}

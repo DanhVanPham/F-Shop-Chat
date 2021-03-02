@@ -1,10 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Message from './message-item';
+import Message from '../MessageItem/index';
+import '../MessageList/style.css';
 
-
-
-function messageList(props) {
+function MessageList(props) {
     return (
         <ul class="messages">
             <Message user={false} />
@@ -20,10 +18,15 @@ function messageList(props) {
             <Message user={false} />
             <Message user={true} />
             <Message user={false} />
-
-
+            <Message user={true} />
+            <Message user={false} />
+            <Message user={true} />
+            <Message user={false} />
+            <Message user={true} />
+            <Message user={false} />
+            <Message user={true} />
         </ul>
     );
 }
 
-export default messageList;
+export default MessageList;
