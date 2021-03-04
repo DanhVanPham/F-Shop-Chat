@@ -1,6 +1,6 @@
 import React from 'react';
 import Message from '../MessageItem/index';
-import '../MessageList/style.css';
+import './style.css';
 
 function MessageList(props) {
     return (

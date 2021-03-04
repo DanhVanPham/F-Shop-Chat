@@ -1,5 +1,5 @@
 import React from 'react';
-import '../ChatBox/style.css';
+import './style.css';
 import MessageList from '../MessageList/index';
 import PropTypes from 'prop-types';
 import Input from '../TextChat/index';
