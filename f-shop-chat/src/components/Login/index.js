@@ -1,35 +1,41 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import './style.css';
 import AutheService from '../../services/AuthenticationService';
-
+import { Redirect } from 'react-router';
+import Loading from '../../assets/loading.svg';
 
 function FormLogin(props) {
     const [account, setAccount] = useState({
         username: "",
         password: "",
     });
-    const [userInfo, setUserInfo] = useState({
-        userId: "",
-        userName: "",
-        avatar: "",
-    });
+
+    const [loading, setLoading] = useState(false);
+    const [redirect, setRedirect] = useState(false);
+    const [error, setError] = useState("");
 
     const login = async (e) => {
         e.preventDefault();
-        console.log(account);
         const credentails = JSON.stringify(account);
         try {
+            setLoading(true);
             const response = await AutheService.login(credentails);
             if (response.status === 200) {
                 const res = await AutheService.getUser(account.username);
                 if (res.status === 200) {
-                    const { userId, userName, avatar } = res.data;
-                    setUserInfo({ userId, userName, avatar });
-                    props.function({ userInfo });
+                    const { userId, userName, avatar, roleId } = res.data;
+                    localStorage.setItem("account", JSON.stringify({ userId, userName, avatar, roleId }))
+                    setRedirect(true);
                 }
             }
         } catch (err) {
-            throw new Error(err);
+            if(err.response === undefined){
+                setError("Cannot connect to server");
+            } else if (err.response.status === 401 || err.response.status === 400) {
+                setError("Username or password is wrong");
+            }
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -45,8 +51,8 @@ function FormLogin(props) {
         })
     }
 
-    return (
-        <div className="form-content-right">
+    return <Fragment>
+        {redirect ? <Redirect to="/chat/a" /> : <div className="form-content-right">
             <form className="form">
                 <div className="form-inputs">
                     <input type="text" name="username" onChange={handleChange} className="form-input" placeholder="Email hoặc Username" />
@@ -56,16 +62,17 @@ function FormLogin(props) {
                 </div>
                 <div className="form-submit">
                     <button type="submit" className="form-input-btn" onClick={login}>
-                        Đăng nhập
+                        {loading ? <img src={Loading} alt="Loading" width="30px" height="30px" /> : "Đăng nhập"}
                     </button>
+                    <div className="error-message">{error}</div>
                 </div>
                 <div className="border-line"></div>
                 <div className="link-create-account">
                     <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md">Tạo tài khoản mới</a>
                 </div>
             </form>
-        </div>
-    );
+        </div>}
+    </Fragment>
 }
 
 export default FormLogin;

@@ -3,8 +3,14 @@ import { get } from "../utils/api/apiCaller";
 
 class AuthenticationService {
     isLoggedIn = () => {
-        return false;
+        if(JSON.parse(localStorage.getItem("account")) === null || JSON.parse(localStorage.getItem("account")) === undefined){
+            return false;
+        }
+        const { userId } = JSON.parse(localStorage.getItem("account"));
+        console.log(userId)
+        return userId !== "" && userId !== null && userId !== undefined;
     }
+
     //login
     login = (credentials) => {
         return post("/login", {}, credentials, {});
