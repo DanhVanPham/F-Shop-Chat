@@ -1,6 +1,6 @@
 import React from 'react';
-import Drawer from '../../Components/Drawer/index';
-import ChatBox from '../../Components/ChatBox/index';
+import Drawer from '../../components/Drawer/index';
+import ChatBox from '../../components/ChatBox/index';
 import '../Home/style.css';
 
 function Home() {

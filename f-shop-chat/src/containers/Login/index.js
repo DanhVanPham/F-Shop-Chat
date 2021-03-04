@@ -1,5 +1,5 @@
 import React from 'react';
-import FormLogin from '../../Components/Login/index'
+import FormLogin from '../../components/Login/index'
 import '../Login/style.css';
 
 function Login(props) {
