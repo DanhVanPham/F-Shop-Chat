@@ -11,6 +11,15 @@ class AuthenticationService {
         return userId !== "" && userId !== null && userId !== undefined;
     }
 
+    getUserName = () => {
+        const { userName } = JSON.parse(localStorage.getItem("account"));
+        return userName;
+    }
+
+    removeUser = () => {
+        localStorage.removeItem("account");
+    }
+
     //login
     login = (credentials) => {
         return post("/login", {}, credentials, {});

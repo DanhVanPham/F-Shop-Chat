@@ -1,3 +1,6 @@
+.pointer {
+    cursor: pointer;
+}
 .user_online_box {
     display: grid;
     grid-template-rows: 12vh 88vh;

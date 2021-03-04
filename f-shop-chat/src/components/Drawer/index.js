@@ -1,14 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
+import AuthenticationService from '../../services/AuthenticationService';
 import './style.css'
 
 
 
 function Drawer() {
+    const history = useHistory();
     const [active, setActive] = useState(false);
     const [dimmensions, setDimmensions] = useState({
         height: window.innerHeight,
         width: window.innerWidth
     })
+
+    const logout = async () => {
+        try {
+            const response = await AuthenticationService.logout(AuthenticationService.getUserName());
+            if(response.status === 200){
+                AuthenticationService.removeUser();
+                history.push("/");
+            }
+        } catch(ex){
+            console.log(ex);
+        } finally {
+
+        }
+    }
 
     function useScriptMenu() {
         if (active) {
@@ -43,10 +60,10 @@ function Drawer() {
                     <div className="app-title">Chat</div>
                 </div>
                 <div className="user-features">
-                    <div className="icon icon-drop"><a href="#"><i className="fa fa-caret-down fa-2x"></i></a></div>
-                    <div className="icon icon-video"><a href="#"><span className="iconify" data-icon="mdi-video-plus" data-inline="false"></span></a></div>
-                    <div className="icon icon-plus"><a href="#"><i className="fa fa-plus-square fa-2x"></i></a></div>
-                    <div className="icon icon-menu"><a href="javascript:void(0)" onClick={useScriptMenu}><i className="fa fa-bars fa-2x"></i></a></div>
+                    <div className="icon icon-drop pointer" onClick={logout}><i className="fa fa-caret-down fa-2x"></i></div>
+                    <div className="icon icon-video pointer"><span className="iconify" data-icon="mdi-video-plus" data-inline="false"></span></div>
+                    <div className="icon icon-plus pointer"><i className="fa fa-plus-square fa-2x"></i></div>
+                    <div className="icon icon-menu pointer"  onClick={useScriptMenu}><i className="fa fa-bars fa-2x"></i></div>
                 </div>
                 <div className="text-search">
                     <form action="#">
