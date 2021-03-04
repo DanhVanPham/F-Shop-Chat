@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router';
 import AuthenticationService from '../../services/AuthenticationService';
-import './style.css'
+import UserService from '../../services/UserService';
+import './style.css';
 
 
 
@@ -12,6 +13,8 @@ function Drawer() {
         height: window.innerHeight,
         width: window.innerWidth
     })
+    const mouted = useRef(false);
+    // const [contacts, setContacts] = useState([]);
 
     const logout = async () => {
         try {
@@ -36,6 +39,13 @@ function Drawer() {
             setActive(true);
         }
     }
+
+    useEffect(() => {
+        mouted.current = true;
+        UserService.getContactUsers(AuthenticationService.getUserName()).then(res => {
+            console.log(res);
+        })
+    }, [])
 
     useEffect(() => {
         function handleResize() {
