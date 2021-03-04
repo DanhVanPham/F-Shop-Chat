@@ -1,7 +1,6 @@
 import React from 'react';
 import Drawer from '../../Components/Drawer/index';
 import ChatBox from '../../Components/ChatBox/index';
-// import Input from '../../components/TextField/index';
 import '../Home/style.css';
 
 function Home() {

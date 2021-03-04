@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect, useHistory, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import '../Login/style.css';
 import AutheService from '../../services/AuthenticationService';
 
 
-function Login(props) {
-    const history = useHistory();
+function FormLogin(props) {
     const [account, setAccount] = useState({
         username: "",
         password: "",
@@ -70,4 +68,4 @@ function Login(props) {
     );
 }
 
-export default Login;
+export default FormLogin;
