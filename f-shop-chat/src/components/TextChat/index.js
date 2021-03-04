@@ -1,6 +1,6 @@
 import React from 'react';
 import TextField from '../TextField/index';
-import '../TextChat/style.css';
+import './style.css';
 
 function TextChat() {
     return (
