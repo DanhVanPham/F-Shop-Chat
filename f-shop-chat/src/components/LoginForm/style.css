@@ -1,101 +1,59 @@
-    .form-content-right {
-      position: relative;
-    }
-
     .error-message {
       margin-top: 5px;
       color: red;
     }
 
+
+    .title {
+      font-family: 'Arsenal', sans-serif;
+      font-weight: 800;
+      font-size: 55px;
+      color: #6c63ff;
+      margin: 0;
+      text-align: center;
+    }
+
     .form {
-      position: absolute;
-      top: 20%;
-      right: 30%;
-      width: 55%;
-      height: 60%;
-      display: flex;
-      flex-direction: column;
+      padding: 20px 50px;
+      width: 400px;
+      margin: 0 auto;
       align-items: center;
-      background-color: white;
-      border-radius: 12px;
-    }
-
-    .form-inputs {
-      margin-bottom: 1rem;
-      width: 80%;
-    }
-
-    /* .form-inputs p {
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    color: #f00e0e;
-  } */
-
-    .form-inputs .form-input {
-      border: 2px solid #dddfe2;
-      display: block;
-      outline: none;
-      border-radius: 8px;
-      height: 50px;
-      width: 100%;
-      font-size: 1rem;
-      padding-left: 2%;
-      margin-top: 10px;
-      margin-left: -8px;
-    }
-
-    .form-input:focus {
-      display: block;
-      outline: none;
-      padding-left: 2%;
-      border-color: #07b9ff;
-      font-size: 1.1rem;
-    }
-
-    .form-input::placeholder {
-      color: #595959;
-      font-size: 12px;
-      padding-left: 2%;
-      font-size: 1.1rem;
-    }
-
-    .form-inputs .form-input {
-      margin-top: 5%;
-    }
-
-    .form-submit {
-      width: 102%;
-      margin-left: 18%;
-      margin-top: 4%;
-    }
-
-    .form-submit .form-input-btn {
-      width: 82%;
-      height: 50px;
-      margin-top: 10px;
+      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
       border-radius: 10px;
-      background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
-      outline: none;
+    }
+
+    .button-login {
+      width: 100%;
+      height: 40px;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      color: white;
+      background-color: #6c63ff;
       border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .form-submit .form-input-btn:hover {
+      border-radius: 45px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease 0s;
       cursor: pointer;
-      background: linear-gradient( 90deg, rgb(39, 143, 255) 0%, rgb(12, 99, 250) 100%);
-      border-radius: 16px;
-      transition: all 0.4s ease-out;
+      outline: none;
     }
 
-    .form .border-line {
-      border: 1px solid #056aee;
-      margin-top: 48px;
-      margin-left: 16px;
-      margin-right: 16px;
-      width: 90%;
-      background-color: #056aee;
+    .button-login:hover {
+      background-color: #6c63ff;
+      box-shadow: 0px 3px 4px #847cff;
+      color: #fff;
+      /* transform: translateY(-7px); */
+    }
+
+    .link-create {
+      font-family: 'Arsenal', sans-serif;
+      text-align: center;
+    }
+
+    .link-create a {
+      text-decoration: none;
+      color: #6c63ff;
     }
 
     .link-create-account {

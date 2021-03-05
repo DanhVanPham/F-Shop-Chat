@@ -8,7 +8,9 @@ function Login(props) {
             <div className="form-content-left">
                 <img src={Banner} alt="spaceship" className="form-img" />
             </div>
-            <FormLogin />
+            <div className="form-content-right">
+                <FormLogin />
+            </div>
         </div>
     );
 }
