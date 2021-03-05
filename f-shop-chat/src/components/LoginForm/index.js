@@ -4,25 +4,20 @@ import AutheService from '../../services/AuthenticationService';
 import { Redirect } from 'react-router';
 import Loading from '../../assets/loading.svg';
 import InputField from '../InputField';
+import { useForm } from 'react-hook-form';
 
 function FormLogin(props) {
-    const [account, setAccount] = useState({
-        username: "",
-        password: "",
-    });
-
     const [loading, setLoading] = useState(false);
     const [redirect, setRedirect] = useState(false);
-    const [error, setError] = useState("");
 
-    const login = async (e) => {
-        e.preventDefault();
-        const credentails = JSON.stringify(account);
+    const { register, errors, setError, handleSubmit } = useForm();
+    const login = async (data) => {
+        const credentails = JSON.stringify(data);
         try {
             setLoading(true);
             const response = await AutheService.login(credentails);
             if (response.status === 200) {
-                const res = await AutheService.getUser(account.username);
+                const res = await AutheService.getUser(data.username);
                 if (res.status === 200) {
                     const { userId, userName, avatar, roleId } = res.data;
                     localStorage.setItem("account", JSON.stringify({ userId, userName, avatar, roleId }))
@@ -30,10 +25,10 @@ function FormLogin(props) {
                 }
             }
         } catch (err) {
-            if (err.response === undefined) {
-                setError("Cannot connect to server");
-            } else if (err.response.status === 401 || err.response.status === 400) {
-                setError("Username or password is wrong");
+            if(err.response){
+                setError("connection", "Cannot connect to server!")
+            } else if (err.response && err.response.status === 401) {
+                setError("authentication", "Username or password is incorrect!");
             }
         } finally {
             setLoading(false);
@@ -44,49 +39,34 @@ function FormLogin(props) {
     //     localStorage.setItem("user-info", JSON.stringify(userInfo));
     // }, [userInfo])
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setAccount({
-            ...account,
-            [name]: value
-        })
-    }
-
     return <Fragment>
         {redirect ? <Redirect to="/chat/a" /> :
             <form className="form">
                 <h1 className="title">Login</h1>
                 <InputField
-                    name="Username"
+                    register={register}
+                    name="username"
                     type="text"
-                    label="Your name"
-                    icon={<i class="fa fa-user" aria-hidden="true"></i>}
+                    label="Username"
+                    errors={errors}
+                    icon={<i className="fa fa-user" aria-hidden="true"></i>}
                 />
                 <InputField
+                    register={register}
                     type="password"
-                    name="fullname"
+                    name="password"
                     label="Password"
-                    icon={<i class="fa fa-key" aria-hidden="true"></i>}
+                    errors={errors}
+                    icon={<i className="fa fa-key" aria-hidden="true"></i>}
                 />
                 <div style={{ 'marginTop': '40px' }} />
-                <button type="submit" className="button-login" onClick={login}>
+                <button type="submit" className="button-login" onClick={handleSubmit(login)}>
                     {loading ? <img src={Loading} alt="Loading" width="30px" height="30px" /> : "LOGIN"}
                 </button>
+                {errors.authentication ? <p className="error-message">{errors.authentication.message}</p> : null}
+                {errors.connection ? <p className="error-message">{errors.connection.message}</p> : null}
                 <div style={{ 'marginTop': '25px' }} />
                 <p className="link-create">Don't have account? <a href="google.com">Register Here</a></p>
-                {/* <button type="submit" className="button-login" onClick={login}>
-                    REGISTER
-                </button> */}
-                {/* <div className="form-submit">
-                    <button type="submit" className="form-input-btn" onClick={login}>
-                        {loading ? <img src={Loading} alt="Loading" width="30px" height="30px" /> : "Đăng nhập"}
-                    </button>
-                    <div className="error-message">{error}</div>
-                </div>
-                <div className="border-line"></div>
-                <div className="link-create-account">
-                    <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md">Tạo tài khoản mới</a>
-                </div> */}
             </form>}
     </Fragment>
 }

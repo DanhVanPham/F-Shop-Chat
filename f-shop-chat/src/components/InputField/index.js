@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './style.css';
-const InputField = ({name, label, type, icon, isTaken}) => {
+const InputField = ({register, name, label, type, errors, valid, icon, isTaken}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [currentText, setCurrentText] = useState('');
   return (
@@ -9,6 +9,7 @@ const InputField = ({name, label, type, icon, isTaken}) => {
       <div className="input-field">
         <h5>{label}</h5>
         <input
+          ref={valid || register({required: `${label} is required`})}
           type={type}
           name={name}
           className="input"
@@ -18,7 +19,7 @@ const InputField = ({name, label, type, icon, isTaken}) => {
             !currentText && setIsFocused(false);
           }}
         />
-        {/* {errors[name] && <span>{errors[name].message}</span>} */}
+        {errors[name] && <span>{errors[name].message}</span>}
       </div>
     </div>
   );
