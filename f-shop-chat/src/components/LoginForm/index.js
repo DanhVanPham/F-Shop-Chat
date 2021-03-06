@@ -10,12 +10,15 @@ function FormLogin(props) {
     const [loading, setLoading] = useState(false);
     const [redirect, setRedirect] = useState(false);
 
-    const { register, errors, setError, handleSubmit } = useForm();
+    const { register, errors, setError, handleSubmit, clearErrors } = useForm();
+
     const login = async (data) => {
-        const credentails = JSON.stringify(data);
+        clearErrors();
         try {
             setLoading(true);
-            const response = await AutheService.login(credentails);
+            const response = await AutheService.login({
+                username: data.username, password: data.password
+            });
             if (response.status === 200) {
                 const res = await AutheService.getUser(data.username);
                 if (res.status === 200) {
@@ -25,10 +28,11 @@ function FormLogin(props) {
                 }
             }
         } catch (err) {
-            if(err.response){
-                setError("connection", "Cannot connect to server!")
-            } else if (err.response && err.response.status === 401) {
-                setError("authentication", "Username or password is incorrect!");
+            if (err.response && err.response.status === 401) {
+                setError("password", {
+                    type: "manual",
+                    message: "Student code or password is not correct.",
+                })
             }
         } finally {
             setLoading(false);
@@ -63,8 +67,6 @@ function FormLogin(props) {
                 <button type="submit" className="button-login" onClick={handleSubmit(login)}>
                     {loading ? <img src={Loading} alt="Loading" width="30px" height="30px" /> : "LOGIN"}
                 </button>
-                {errors.authentication ? <p className="error-message">{errors.authentication.message}</p> : null}
-                {errors.connection ? <p className="error-message">{errors.connection.message}</p> : null}
                 <div style={{ 'marginTop': '25px' }} />
                 <p className="link-create">Don't have account? <a href="google.com">Register Here</a></p>
             </form>}
