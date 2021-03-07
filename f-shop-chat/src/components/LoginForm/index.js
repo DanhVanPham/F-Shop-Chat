@@ -28,20 +28,23 @@ function FormLogin(props) {
                 }
             }
         } catch (err) {
-            if (err.response && err.response.status === 401) {
+            if(!err.response){
                 setError("password", {
                     type: "manual",
-                    message: "Student code or password is not correct.",
+                    message: "Cannot connection to server.",
                 })
+            } else {
+                if (err.response.status === 401) {
+                    setError("password", {
+                        type: "manual",
+                        message: "Student code or password is not correct.",
+                    })
+                }
             }
         } finally {
             setLoading(false);
         }
     }
-
-    // useEffect(() => {
-    //     localStorage.setItem("user-info", JSON.stringify(userInfo));
-    // }, [userInfo])
 
     return <Fragment>
         {redirect ? <Redirect to="/chat/a" /> :

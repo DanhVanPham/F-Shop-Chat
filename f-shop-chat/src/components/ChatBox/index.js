@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 import MessageList from '../MessageList/index';
 import PropTypes from 'prop-types';
@@ -8,7 +8,36 @@ ChatBox.propTypes = {
     user: PropTypes.bool,
 };
 
+var stompClient = null;
 function ChatBox() {
+    useEffect(() => {
+
+    }, [])
+
+    const connect = () => {
+        const Stomp = require('stompjs');
+        var SockJs = require('sockjs-client');
+        SockJs = new SockJs("http://localhost:9090/ws");
+        stompClient = Stomp.over(SockJs);
+        stompClient.connect({}, onConnected, onError);
+    }
+
+    const onConnected = () => {
+        console.log("connected");
+        // stompClient.subscribe(
+        //     "/user/" + currentUser.id + "/queue/messages",
+        //     onMessageReceived
+        // );
+        stompClient.subcribe(`/user/${1}/queue/messages`)
+    };
+
+    const onError = (err) => {
+        console.log(err);
+    };
+
+    const onMessageReceived = () => {
+
+    }
     return (
         <div className="chat-box">
             <div className="chat-box-header">

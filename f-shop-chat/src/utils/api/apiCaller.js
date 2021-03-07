@@ -5,10 +5,10 @@ export const defaultHeader = {
     'Accept': 'application/json',
 }
 
-export const request = (endpoint, method, headers, body, params) => {
+export const request = (baseUrl,endpoint, method, headers, body, params) => {
     return Axios(
         {
-            url: `http://localhost:8082/v1/api` + endpoint,
+            url: baseUrl + endpoint,
             method: method,
             headers: { ...defaultHeader, ...headers },
             data: body,
@@ -18,20 +18,20 @@ export const request = (endpoint, method, headers, body, params) => {
     )
 }
 
-export const get = (endpoint, headers = {}, params = {}) => {
-    return request(endpoint, "GET", headers, null, params);
+export const get = (baseUrl,endpoint, headers = {}, params = {}) => {
+    return request(baseUrl, endpoint, "GET", headers, null, params);
 }
 
-export const post = (endpoint, headers = {}, body = {}, params = {}) => {
-    return request(endpoint, "POST", headers, body, params);
+export const post = (baseUrl, endpoint, headers = {}, body = {}, params = {}) => {
+    return request(baseUrl, endpoint, "POST", headers, body, params);
 }
 
-export const put = (endpoint, headers = {}, body = {}, params = {}) => {
-    return request(endpoint, "PUT", headers, body, params);
+export const put = (baseUrl, endpoint, headers = {}, body = {}, params = {}) => {
+    return request(baseUrl, endpoint, "PUT", headers, body, params);
 }
 
-export const remove = (endpoint, headers = {}, body = {}, params = {}) => {
-    return request(endpoint, "DELETE", headers, body, params);
+export const remove = (baseUrl, endpoint, headers = {}, body = {}, params = {}) => {
+    return request(baseUrl, endpoint, "DELETE", headers, body, params);
 }
 
 
