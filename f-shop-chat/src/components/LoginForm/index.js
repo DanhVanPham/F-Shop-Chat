@@ -37,7 +37,7 @@ function FormLogin(props) {
                 if (err.response.status === 401) {
                     setError("password", {
                         type: "manual",
-                        message: "Student code or password is not correct.",
+                        message: "Username or password is incorrect.",
                     })
                 }
             }
@@ -66,7 +66,7 @@ function FormLogin(props) {
                     errors={errors}
                     icon={<i className="fa fa-key" aria-hidden="true"></i>}
                 />
-                <div style={{ 'marginTop': '40px' }} />
+                <div className="margin" />
                 <button type="submit" className="button-login" onClick={handleSubmit(login)}>
                     {loading ? <img src={Loading} alt="Loading" width="30px" height="30px" /> : "LOGIN"}
                 </button>

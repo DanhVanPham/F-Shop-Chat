@@ -28,6 +28,12 @@
 	color: rgba(241, 82, 9, 0.9);
 }
 
+@media screen and (max-width: 900px){
+	.input-field span {
+		font-size: 12px;
+	}
+}
+
 .input-icon i {
 	position: absolute;
 	color: #d9d9d9;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import MessageList from '../MessageList/index';
 import PropTypes from 'prop-types';
@@ -10,8 +10,9 @@ ChatBox.propTypes = {
 
 var stompClient = null;
 function ChatBox() {
+    const user = JSON.parse(localStorage && localStorage.getItem("account"));
+    const [message, setMessage] = useState()
     useEffect(() => {
-
     }, [])
 
     const connect = () => {

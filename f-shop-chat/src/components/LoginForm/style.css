@@ -84,98 +84,23 @@
       text-decoration: none;
     }
 
-    @media only screen and (max-width: 800px) {
+    .margin {
+      margin-top: 40px
+    }
+
+    @media screen and (max-width: 900px) {
       .form {
-        position: absolute;
-        top: 5%;
-        right: 15%;
-        width: 70%;
-        height: max-content;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: white;
-        border-radius: 12px;
-      }
-      .form-inputs {
-        margin-bottom: 0.5rem;
-        width: 80%;
-      }
-      /* .form-inputs p {
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    color: #f00e0e;
-  } */
-      .form-inputs .form-input {
-        border: 1px solid #dddfe2;
-        display: block;
-        outline: none;
-        border-radius: 6px;
-        height: 40px;
-        width: 100%;
-        font-size: 0.5rem;
-        padding-left: 2%;
-        margin-top: 10px;
-        margin-left: -4px;
-      }
-      .form-input:focus {
-        display: block;
-        outline: none;
-        padding-left: 2%;
-        border-color: #07b9ff;
-        font-size: 1rem;
-      }
-      .form-input::placeholder {
-        color: #595959;
-        font-size: 12px;
-        padding-left: 2%;
-        font-size: 0.85rem;
-      }
-      .form-inputs .form-input {
-        margin-top: 5%;
-      }
-      .form-submit {
-        width: 102%;
-        margin-left: 18%;
-        margin-top: 4%;
-      }
-      .form-submit .form-input-btn {
-        width: 82%;
-        height: 40px;
-        margin-top: 10px;
-        border-radius: 8px;
-        background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
-        outline: none;
-        border: none;
-        color: #fff;
-        font-size: 1.4rem;
-        font-weight: bold;
-      }
-      .form-submit .form-input-btn:hover {
-        cursor: pointer;
-        background: linear-gradient( 90deg, rgb(39, 143, 255) 0%, rgb(12, 99, 250) 100%);
-        transition: all 0.4s ease-out;
-      }
-      .form .border-line {
-        border: 1px solid #056aee;
-        margin-top: 10%;
-        margin-left: 16px;
-        margin-right: 16px;
         width: 90%;
-        background-color: #056aee;
+        box-sizing: border-box;
+        margin-top: 20px;
+        margin-bottom: 20px;
       }
-      .link-create-account {
-        display: block;
-        background-color: #42b72a;
-        width: 82%;
-        height: 10px;
-        margin-top: 8%;
-        border-radius: 8px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-align: center;
-        padding-top: 15px;
-        padding-bottom: 30px;
-        margin-bottom: 4%;
+
+      .title {
+        font-size: 30px;
+      }
+
+      .margin {
+        margin-top: 25px
       }
     }

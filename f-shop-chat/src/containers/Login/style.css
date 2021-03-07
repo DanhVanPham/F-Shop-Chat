@@ -23,6 +23,9 @@
 }
 
 @media screen and (max-width: 900px){
+  .form-container {
+    margin-top: 10px;
+  }
   .form-content-left {
     width: 100%;
   }
