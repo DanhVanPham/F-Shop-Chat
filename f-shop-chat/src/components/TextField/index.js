@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.css';
 
-function TextField() {
+function TextField({value, onChange}) {
     return (
         <div className="message_input_wrapper">
-            <input type="text" className="message_input" placeholder="Type a message" />
+            <input value={value} onChange={onChange} type="text" className="message_input" placeholder="Type a message" />
         </div>
     )
 }

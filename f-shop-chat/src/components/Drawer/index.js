@@ -40,7 +40,6 @@ function Drawer() {
             const response = await UserService.getContactUsers(AuthenticationService.getUserName());
             if (response.status === 200) {
                 if (mounted.current) {
-                    console.log(response.data)
                     setContacts(response.data);
                 }
             }

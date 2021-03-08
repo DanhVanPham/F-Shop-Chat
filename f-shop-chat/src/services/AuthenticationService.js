@@ -9,7 +9,6 @@ class AuthenticationService {
             return false;
         }
         const { userId } = JSON.parse(localStorage.getItem("account"));
-        console.log(userId)
         return userId !== "" && userId !== null && userId !== undefined;
     }
 
