@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { useHistory } from 'react-router';
 import AuthenticationService from '../../services/AuthenticationService';
 import UserService from '../../services/UserService';
@@ -37,7 +37,7 @@ function Drawer() {
             if (mounted.current) {
                 setLoading(true);
             }
-            const response = await UserService.getContactUsers(AuthenticationService.getUserName());
+            const response = await UserService.getContactUsers(AuthenticationService.getUserId());
             if (response.status === 200) {
                 if (mounted.current) {
                     setContacts(response.data);
@@ -84,44 +84,50 @@ function Drawer() {
         }
     }, [window.innerWidth]);
 
+    if (loading) {
+        return <p>Loading...</p>
+    }
+
     return (
-        <div className="user_online_box">
-            <div className="header-user">
-                <div className="user-avatar">
-                    <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
-                    <div className="app-title">Chat</div>
+        <Fragment>
+            {contacts.length === 0 ? <p>Dont' have room</p> : <div className="user_online_box">
+                <div className="header-user">
+                    <div className="user-avatar">
+                        <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <div className="app-title">Chat</div>
+                    </div>
+                    <div className="user-features">
+                        <div className="icon icon-drop pointer" onClick={logout}><i className="fa fa-caret-down fa-2x"></i></div>
+                        <div className="icon icon-video pointer"><span className="iconify" data-icon="mdi-video-plus" data-inline="false"></span></div>
+                        <div className="icon icon-plus pointer"><i className="fa fa-plus-square fa-2x"></i></div>
+                        <div className="icon icon-menu pointer" onClick={useScriptMenu}><i className="fa fa-bars fa-2x"></i></div>
+                    </div>
+                    <div className="text-search">
+                        <form action="#">
+                            <div className="message_input_wrapper">
+                                <input type="text" className="message_input" placeholder="Tìm kiếm trên Messenger" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div className="user-features">
-                    <div className="icon icon-drop pointer" onClick={logout}><i className="fa fa-caret-down fa-2x"></i></div>
-                    <div className="icon icon-video pointer"><span className="iconify" data-icon="mdi-video-plus" data-inline="false"></span></div>
-                    <div className="icon icon-plus pointer"><i className="fa fa-plus-square fa-2x"></i></div>
-                    <div className="icon icon-menu pointer" onClick={useScriptMenu}><i className="fa fa-bars fa-2x"></i></div>
-                </div>
-                <div className="text-search">
-                    <form action="#">
-                        <div className="message_input_wrapper">
-                            <input type="text" className="message_input" placeholder="Tìm kiếm trên Messenger" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div className="list_user_box" id="list_user">
-                <div className="icon-close"><p className="link-close" onClick={useScriptMenu}>X</p></div>
-                {contacts.map((contact, index) => {
-                    return <div className="list-group-item active pointer" key={index}>
-                        <div className="media">
-                            <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
-                            <div className="media-body">
-                                <div className="media-title">
-                                    <h6 className="user-name">{contact.name}</h6><small className="date">25 Dec</small>
+                <div className="list_user_box" id="list_user">
+                    <div className="icon-close"><p className="link-close" onClick={useScriptMenu}>X</p></div>
+                    {contacts.map((contact, index) => {
+                        return <div className="list-group-item active pointer" key={index}>
+                            <div className="media">
+                                <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                                <div className="media-body">
+                                    <div className="media-title">
+                                        <h6 className="user-name">{contact.name}</h6><small className="date">25 Dec</small>
+                                    </div>
+                                    <p className="newest_messages">Hello, What your name?</p>
                                 </div>
-                                <p className="newest_messages">Hello, What your name?</p>
                             </div>
                         </div>
-                    </div>
-                })}
-            </div>
-        </div>
+                    })}
+                </div>
+            </div>}
+        </Fragment>
     );
 }
 

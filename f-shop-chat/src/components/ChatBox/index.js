@@ -66,10 +66,9 @@ function ChatBox() {
         chatRoomId: location.pathname.substring(location.pathname.lastIndexOf("/") + 1),
         senderId: currentUser.userId,
         content: msg,
-        timestamp: new Date(),
+        sendTime: new Date(),
       };
-      console.log(message);
-      // stompClient.send("/app/chat", {}, JSON.stringify(message));
+      stompClient.send("/app/chat", {}, JSON.stringify(message));
     }
   };
 
