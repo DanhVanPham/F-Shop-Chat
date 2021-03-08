@@ -1,25 +1,23 @@
-.pointer {
-    cursor: pointer;
-}
 .user_online_box {
-    display: grid;
-    grid-template-rows: 12vh 88vh;
+    display: flex;
+    flex-direction: column;
 }
+
 .user_online_box .header-user {
     display: grid;
     grid-template-columns: 60% 40%;
-    width: 24vw;
 }
 
 .user_online_box .header-user .user-avatar {
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 40% 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .user_online_box .header-user .user-avatar .avatar {
-    margin-top: 24%;
-    margin-left: 18%;
+    margin-top: 10%;
+    margin-left: 1px;
     width: 55px;
     height: 55px;
     vertical-align: middle;
@@ -28,61 +26,49 @@
 
 .user_online_box .header-user .user-avatar .app-title {
     font-weight: bold;
-    font-size: 2rem;
-    font-family: sans-serif;
-    margin-top: 24%;
-    margin-left: 8%;
+    font-size: 2.4rem;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    align-self: center;
+    margin-top: 10%;
 }
 
 .user_online_box .header-user .user-features {
     display: flex;
     flex-direction: row;
-    margin-top: 16%;
+    justify-content: space-evenly;
 }
+
 .list_user_box .icon-close {
-    display: none;    
+    display: none;
+}
+
+.user_online_box .header-user .user-features .icon {
+    background-color: #f0f7f7;
+    height: 32px;
+    width: 32px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 24%;
+    line-height: 1.36;
 }
 
 .user_online_box .header-user .user-features .icon-drop {
-    background-color: #f0f7f7;
-    height: 30px;
-    width: 30px;
-    justify-content: center;
+    height: 38px;
     padding-top: 0.5vh;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 12px;
-    line-height: 1.34;
-    margin-top: 10%;
-    margin-left: 8%;
+    font-size: 16px;
 }
 
 .user_online_box .header-user .user-features .icon-video {
-    background-color: #f0f7f7;
-    margin-left: 8%;
-    padding-top: 1vh;
-    height: 30px;
-    width: 30px;
-    justify-content: center;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 20px;
-    line-height: 1.34;
-    margin-top: 10%;
+    padding-top: 1.1vh;
+    font-size: 22px;
 }
 
 .user_online_box .header-user .user-features .icon-plus {
-    background-color: #f0f7f7;
-    margin-left: 8%;
-    padding-top: 1vh;
-    height: 30px;
-    width: 30px;
-    justify-content: center;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 8px;
-    line-height: 1.34;
-    margin-top: 10%;
+    padding-top: 1.4vh;
+    font-size: 10px;
 }
 
 .user_online_box .header-user .user-features .icon-menu {
@@ -95,355 +81,304 @@
 
 .user_online_box .header-user .text-search {
     position: relative;
-    width: 160%;
+    width: 167%;
+    margin-bottom: 10px;
 }
 
 .user_online_box .header-user .text-search .message_input_wrapper {
     width: 100%;
-    margin-left: 5px;
+    margin-left: 0px;
 }
 
-.user_online_box .header-user .text-search .message_input_wrapper .message_input{
+.user_online_box .header-user .text-search .message_input_wrapper .message_input {
     background-color: rgba(249, 250, 251);
-    width: 100%;
+    width: 86%;
     height: 40px;
     margin-top: 2vh;
-    padding-left: 16px;
+    margin-left: 5%;
     font-size: 110%;
-    border-radius: 18px;
+    border-radius: 24px;
 }
 
-.user_online_box .header-user .text-search .message_input_wrapper .message_input::placeholder{
-      font-size: 0.9rem;
-      color: #999;
-  }
+.user_online_box .header-user .text-search .message_input_wrapper .message_input::placeholder {
+    font-size: 0.9rem;
+    color: #999;
+}
 
-  .user_online_box .header-user .text-search .message_input_wrapper .message_input:focus {
+.user_online_box .header-user .text-search .message_input_wrapper .message_input:focus {
     font-size: 1.2rem;
     border: lightseagreen solid;
     outline: none;
 }
 
-/*----------------------------*/
-.user_online_box .list_user_box{
+/*------------List User Box----------------*/
+
+.user_online_box .list_user_box {
     box-sizing: border-box;
-    margin-top: 16%;
     overflow-y: auto;
     width: 100%;
-    height: 80vh;
+    max-height: 79vh;
 }
 
 .user_online_box .list_user_box::-webkit-scrollbar {
     width: 8px;
     border-radius: 4rem;
 }
-      
+
 .user_online_box .list_user_box::-webkit-scrollbar-track {
     width: 8px;
     background: mediumturquoise;
     border-radius: 4rem;
 }
-      
+
 .user_online_box .list_user_box::-webkit-scrollbar-thumb {
     width: 2em;
     background-color: #f5f5f5;
     border-radius: 4rem;
 }
 
-.user_online_box .list_user_box .list-group-item.active {
-  display: flex;
-  cursor: pointer;
-  text-decoration: none;
-  flex-direction: column;
-  background-color: rgba(229, 231, 235);
-  color: black;
-}
-
-.list_user_box .list-group-item{
+.list_user_box .list-group-item {
     display: flex;
     flex-direction: column;
     cursor: pointer;
     text-decoration: none;
-    margin-top: 4%;
     color: black;
-  }
-
-.list_user_box .list-group-item:hover {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    background-color: rgba(229, 231, 235);
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
-.media .avatar {
+.user_online_box .list_user_box .list-group-item.active {
+    background-color: #fff;
+}
+
+.list_user_box .list-group-item:hover {
+    background-color: rgb(214, 214, 218);
+}
+
+.media {
+    display: flex;
+    flex-direction: row;
+}
+
+.media .avatar-user .avatar {
     vertical-align: middle;
     height: 50px;
     border-radius: 50%;
     float: left;
-    margin: 3%;
+    margin: 20%;
+}
+
+.media .media-body {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
 }
 
 .media .media-body .media-title {
     font-weight: bold;
-    margin-left: 22%;
-    margin-top: 16px;
 }
 
 .media .media-body .media-title .user-name {
-    float: left;
-    font-family: serif;
-    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 24px;
 }
 
 .media .media-body .media-title .date {
-  margin-left: 24%;
-  color: rgba(107, 114, 128);
+    margin-left: 8px;
+    margin-top: -50px;
+    color: rgba(107, 114, 128);
+    font-weight: normal;
+    font-size: 0.8rem;
 }
 
-.media .media-body .newest_messages {
-  clear: both;
-  display: block;
-  margin-left: 22%;
-  margin-right: 2%;
-  margin-bottom: 4%;
-  text-align: justify;
+.media .media-body .media-message {
+    margin-top: -10%;
+}
+
+.media .media-body .media-message .newest_messages {
+    margin-right: 2%;
+    margin-bottom: 4%;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.drop-down-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 4px 0px;
+    z-index: 1;
+}
+
+.drop-down-menu .list-menu {
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.menu-pointer {
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: -30px;
+    margin-right: 5px;
+    padding: 10px;
+    font-family: 'Arsenal', sans-serif;
+    border-radius: 10px;
+}
+
+.menu-pointer:hover {
+    background-color: rgb(227, 235, 227);
+}
+
+.menu-pointer .user-name {
+    display: inline-block;
+}
+
+.menu-pointer .logout {
+    display: inline-block;
+}
+
+.menu-pointer .user-name-info {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bolder;
+    margin-left: 10px;
+}
+
+.menu-pointer .text-logout {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bolder;
+    margin-left: 6px;
 }
 
 @media only screen and (max-width: 1000px) {
     .user_online_box {
-        height: 14vh;
-        width: 100vw;
-        display: grid;
-        grid-template-rows: 14vh auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
     .user_online_box .header-user {
         display: grid;
-        grid-template-columns: 58vw 42vw;
+        grid-template-columns: 44% 56%;
     }
-    
     .user_online_box .header-user .user-avatar {
         box-sizing: border-box;
-        grid-column: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
-    
     .user_online_box .header-user .user-avatar .avatar {
-        margin-top: 12%;
-        margin-left: 12%;
-        width: 62px;
-        height: 62px;
+        margin-top: 10%;
+        margin-bottom: 4%;
+        margin-left: 1px;
+        width: 68px;
+        height: 68px;
         vertical-align: middle;
         border-radius: 50%;
     }
-    
     .user_online_box .header-user .user-avatar .app-title {
         font-weight: bold;
-        font-size: 2.8rem;
-        font-family: sans-serif;
-        margin-top: 12%;
-        margin-left: 3px;
+        font-size: 2.6rem;
+        font-family: 'Roboto', sans-serif;
+        display: block;
+        align-self: center;
+        margin-top: 10%;
     }
-    
     .user_online_box .header-user .user-features {
         display: flex;
         flex-direction: row;
-        width: 40vw;
         margin-top: 14px;
     }
-    
-    .user_online_box .header-user .user-features .icon-drop {
-        background-color: #f0f7f7;
-        height: 30px;
-        width: 30px;
-        justify-content: center;
-        padding-top: 0.5vh;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 12px;
-        line-height: 1.34;
-        margin-top: 10%;
-        margin-left: 6%;
-    }
-    
-    .user_online_box .header-user .user-features .icon-video {
-        background-color: #f0f7f7;
-        margin-left: 6%;
-        padding-top: 1vh;
-        height: 30px;
-        width: 30px;
-        justify-content: center;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 20px;
-        line-height: 1.34;
+    .user_online_box .header-user .user-features .icon {
         margin-top: 10%;
     }
-    
-    .user_online_box .header-user .user-features .icon-plus {
-        background-color: #f0f7f7;
-        margin-left: 6%;
-        padding-top: 1vh;
-        height: 30px;
-        width: 30px;
-        justify-content: center;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 8px;
-        line-height: 1.34;
-        margin-top: 10%;
-    }
-    
     .user_online_box .header-user .user-features .icon-menu {
         display: block;
-        background-color: #f0f7f7;
-        margin-left: 8%;
-        padding-top: 1vh;
-        height: 30px;
-        width: 30px;
-        justify-content: center;
-        text-align: center;
-        border-radius: 50%;
+        padding-top: 1.5vh;
         font-size: 8px;
         line-height: 1.34;
-        margin-top: 10%;
     }
-
     .user_online_box .header-user .user-features .icon:hover {
         background-color: #d3dada;
     }
-
-
     .user_online_box .header-user .text-search {
         display: none;
     }
-    /* .user_online_box .header-user .text-search {
-        position: relative;
-        width: 160%;
-        display: none;
-    }
-    
-    .user_online_box .header-user .text-search .message_input_wrapper {
-        width: 100%;
-        margin-left: 5px;
-        margin-top: 6%;
-    }
-    
-    .user_online_box .header-user .text-search .message_input_wrapper .message_input{
-        background-color: rgba(249, 250, 251);
-        width: 100%;
-        height: 40px;
-        margin-top: 5%;
-        padding-left: 16px;
-        font-size: 110%;
-        border-radius: 18px;
-    }
-    
-    .user_online_box .header-user .text-search .message_input_wrapper .message_input::placeholder{
-          font-size: 0.9rem;
-          color: #999;
-      }
-    
-      .user_online_box .header-user .text-search .message_input_wrapper .message_input:focus {
-        font-size: 1.2rem;
-        border: lightseagreen solid;
-        outline: none;
-    } */
-    
     /*----------------------------*/
-    
-    
-    
-    .user_online_box .list_user_box{
+    .user_online_box .list_user_box {
         width: 0;
         position: fixed;
         z-index: 1;
-        height: 100vh;
         top: 0;
         left: 0;
+        height: 100vh;
+        max-height: 100vh;
         background-color: white;
         overflow-x: hidden;
-        transition: 0.5s;
+        transition: 1s;
         margin-top: -0.2vh;
     }
-   
     .list_user_box .icon-close {
-        display: block;    
+        display: block;
         height: 2vh;
         margin-top: 2vh;
+        margin-right: 2vw;
         text-align: right;
+        font-family: sans-serif;
+        font-weight: bold;
     }
-    
     .list_user_box .icon-close .link-close {
-        text-decoration: none; 
+        text-decoration: none;
         font-size: 1.5rem;
         color: black;
         cursor: pointer;
     }
-   
     .list_user_box .icon-close .link-close:hover {
         color: blue;
         outline: none;
     }
-
     .list_user_box .icon-close .link-close:active {
         color: yellow;
     }
-    
-    .user_online_box .list_user_box .list-group-item.active {
-      display: flex;
-      cursor: pointer;
-      text-decoration: none;
-      flex-direction: column;
-      background-color: rgba(229, 231, 235);
-      color: black;
-    }
-    
-    .list_user_box .list-group-item{
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        text-decoration: none;
+    .list_user_box .list-group-item {
         margin-top: 4%;
-        color: black;
-      }
-    
-    .list_user_box .list-group-item:hover {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        background-color: rgba(229, 231, 235);
     }
-    
-    .media .avatar {
-        vertical-align: middle;
+    .media .media-body {
+        margin-left: 40px;
+    }
+    .media .media-body .media-message {
+        margin-top: -20%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .user_online_box .header-user .user-avatar .avatar {
+        margin-left: 5px;
+        width: 50px;
         height: 50px;
-        border-radius: 50%;
-        float: left;
-        margin: 3%;
     }
-    
-    .media .media-body .media-title {
-        font-weight: bold;
-        margin-left: 22%;
-        margin-top: 16px;
+    .user_online_box .header-user .user-avatar .app-title {
+        font-size: 2rem;
     }
-    
-    .media .media-body .media-title .user-name {
-        float: left;
-        font-family: serif;
-        font-size: 1.4rem;
+    .user_online_box .header-user .user-features .icon {
+        margin-top: 5%;
     }
-    
-    .media .media-body .media-title .date {
-      margin-left: 24%;
-      color: rgba(107, 114, 128);
+    .drop-down-menu {
+        min-width: 140px;
     }
-    
-    .media .media-body .newest_messages {
-      clear: both;
-      display: block;
-      margin-left: 22%;
-      margin-right: 2%;
-      margin-bottom: 4%;
-      text-align: justify;
+    .menu-pointer .user-name-info {
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+    .menu-pointer .text-logout {
+        font-size: 1.2rem;
+        font-weight: normal;
     }
 }

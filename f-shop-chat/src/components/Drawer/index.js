@@ -9,6 +9,7 @@ import './style.css';
 function Drawer() {
     const history = useHistory();
     const [active, setActive] = useState(false);
+    const [activeMenu, setActiveMenu] = useState(false);
     const [dimmensions, setDimmensions] = useState({
         height: window.innerHeight,
         width: window.innerWidth
@@ -16,6 +17,8 @@ function Drawer() {
     const [loading, setLoading] = useState(false);
     const mounted = useRef(false);
     const [contacts, setContacts] = useState([]);
+    const userInfo = JSON.parse(localStorage.getItem("account"));
+    const inputRef = useRef();
 
     const logout = async () => {
         try {
@@ -53,6 +56,20 @@ function Drawer() {
     }
 
     function useScriptMenu() {
+        if (!activeMenu) {
+            const varIdDrop = document.getElementById("drop-down-menu").style;
+            varIdDrop.display = "inline-block";
+            varIdDrop.position = "absolute";
+            varIdDrop.top = `${inputRef.current.offsetTop + 48}px`;
+            varIdDrop.left = `${inputRef.current.offsetLeft - 10}px`;
+            setActiveMenu(true);
+        } else {
+            document.getElementById("drop-down-menu").style.display = "none";
+            setActiveMenu(false);
+        }
+    }
+
+    const useScriptMenuListUser = () => {
         if (active) {
             document.getElementById("list_user").style.width = "0";
             setActive(false);
@@ -74,7 +91,7 @@ function Drawer() {
                 window.location.reload();
                 setDimmensions({ height: window.innerHeight, width: window.innerWidth });
             } else if (dimmensions.width >= 1000 && window.innerWidth < 1000) {
-                document.getElementById("list_user").style.width = "0";
+                // document.getElementById("list_user").style.width = "0";
                 setDimmensions({ height: window.innerHeight, width: window.innerWidth });
             }
         }
@@ -90,17 +107,24 @@ function Drawer() {
 
     return (
         <Fragment>
-            {contacts.length === 0 ? <p>Dont' have room</p> : <div className="user_online_box">
+            <div className="user_online_box">
                 <div className="header-user">
                     <div className="user-avatar">
-                        <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
+                        <img src={userInfo.avatar} alt="user" width="50" className="avatar" />
                         <div className="app-title">Chat</div>
                     </div>
                     <div className="user-features">
-                        <div className="icon icon-drop pointer" onClick={logout}><i className="fa fa-caret-down fa-2x"></i></div>
+                        <div className="icon icon-drop pointer" onClick={useScriptMenu} onLoad={useScriptMenu}
+                            ref={inputRef}><i className="fa fa-caret-down fa-2x"></i></div>
                         <div className="icon icon-video pointer"><span className="iconify" data-icon="mdi-video-plus" data-inline="false"></span></div>
                         <div className="icon icon-plus pointer"><i className="fa fa-plus-square fa-2x"></i></div>
-                        <div className="icon icon-menu pointer" onClick={useScriptMenu}><i className="fa fa-bars fa-2x"></i></div>
+                        <div className="icon icon-menu pointer" onClick={useScriptMenuListUser} ><i className="fa fa-bars fa-2x"></i></div>
+                        <div className="drop-down-menu" id="drop-down-menu" onClick={useScriptMenu} onMouseLeave={useScriptMenu}>
+                            <ul className="list-menu">
+                                <li className="menu-pointer"><i className="user-name fa fa fa-user fa-2x"></i><div className="user-name-info">{JSON.parse(localStorage.getItem("account")).name}</div></li>
+                                <li className="menu-pointer" onClick={logout}><i className="logout fa fa-sign-out fa-2x" ></i><div className="text-logout">Logout</div></li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="text-search">
                         <form action="#">
@@ -111,22 +135,29 @@ function Drawer() {
                     </div>
                 </div>
                 <div className="list_user_box" id="list_user">
-                    <div className="icon-close"><p className="link-close" onClick={useScriptMenu}>X</p></div>
-                    {contacts.map((contact, index) => {
-                        return <div className="list-group-item active pointer" key={index}>
-                            <div className="media">
-                                <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" />
-                                <div className="media-body">
-                                    <div className="media-title">
-                                        <h6 className="user-name">{contact.name}</h6><small className="date">25 Dec</small>
+                    <div className="icon-close"><p className="link-close" onClick={useScriptMenuListUser} >X</p></div>
+                    {contacts.length === 0 ? <p style={{ textAlign: 'center', color: 'red', fontSize: '2rem', marginTop: '40%' }}>Dont' have room</p> : <div>
+                        {contacts.map((contact, index) => {
+                            return <div className="list-group-item" key={index}>
+                                <div className="media">
+                                    <div className="avatar-user">
+                                        <img src={contact.avatar} alt="user" width="50" className="avatar" />
                                     </div>
-                                    <p className="newest_messages">Hello, What your name?</p>
+                                    <div className="media-body">
+                                        <div className="media-title">
+                                            <h6 className="user-name">{contact.name}<small className="date">25 Dec</small></h6>
+                                        </div>
+                                        <div className="media-message">
+
+                                            <p className="newest_messages">Hello, What your name?</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    })}
+                        })}
+                    </div>}
                 </div>
-            </div>}
+            </div>
         </Fragment>
     );
 }

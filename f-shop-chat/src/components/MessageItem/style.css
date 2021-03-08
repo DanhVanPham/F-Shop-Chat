@@ -1,146 +1,129 @@
+.message.left {
+  overflow: hidden;
+  width: 80%;
+}
 
-    .message.left {
-        margin-top: 4%;
-        margin-left: 2%;
-        overflow: hidden;
-        width: 72%;
-      }
-  
-    .message.left .avatar{
-        float: left;
-        margin-top: 2%;
-    }
-     
-    .message.left .text-wrapper {
-        margin-left: 8%;
-        width: 50%;
-        border-radius: 51px;
-        background-color: rgba(243, 244, 246);
-        color: rgba(75, 85, 99);
-     }
-     
-    .message.left .text-wrapper .text {
-       padding-top: 4%;
-       padding-bottom: 4%;
-       padding-left: 6%;
-       padding-right: 4%;
-       font-weight: lighter;
-       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-  
-    .message.left .small-date {
-        margin-left: 14%;
-        color: rgba(209, 213, 219);
-      }
-  
-    .message.right {
-        margin-top: 4%;
-        overflow: hidden;
-        width: 72%;
-        float: right;
-      }
-  
-    .message.right .avatar{
-        display: none;
-     }
-     
-    .message.right .text-wrapper {
-        float: right;
-        margin-right: 4%;
-        margin-top: 0.5%;
-        height: max-content;
-        width: 50%;
-        border-radius: 51px;
-        background-color: rgba(37, 99, 235);
-        color: white;
-     }
-     
-    .message.right .text-wrapper .text {
-       padding-top: 4%;
-       padding-bottom: 4%;
-       padding-left: 6%;
-       padding-right: 4%;
-       font-weight: lighter;
-       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-  
-    .message.right .small-date {
-        color: rgba(209, 213, 219);
-        margin-left: 76%;
-      }
-      @media only screen and (max-width: 1010px) {
-        .message.left {
-          margin-top: 6%;
-          margin-left: 2%;
-          overflow: hidden;
-          width: 100%;
-        }
-    
-      .message.left .avatar{
-          float: left;
-          margin-top: 0.5%;
-      }
-       
-      .message.left .text-wrapper {
-          margin-left: 15%;
-          width: 76%;
-          border-radius: 51px;
-          background-color: rgba(243, 244, 246);
-          color: rgba(75, 85, 99);
-       }
-       
-      .message.left .text-wrapper .text {
-         padding-top: 4%;
-         padding-bottom: 4%;
-         padding-left: 6%;
-         padding-right: 4%;
-         font-weight: lighter;
-         font-family: Verdana, Geneva, Tahoma, sans-serif;
-          font-size: 0.8rem;
-        }
-    
-      .message.left .small-date {
-          margin-left: 18%;
-          color: rgba(209, 213, 219);
-          font-size: 0.6rem;
-        }
-    
-      .message.right {
-          margin-top: 2%;
-          margin-bottom: 1%;
-          overflow: hidden;
-          width: 100%;
-          float: right;
-        }
-    
-      .message.right .avatar{
-          display: none;
-       }
-       
-      .message.right .text-wrapper {
-          float: right;
-          margin-right: 4%;
-          margin-top: 0.5%;
-          height: max-content;
-          width: 76%;
-          border-radius: 51px;
-          background-color: rgba(37, 99, 235);
-          color: white;
-       }
-       
-      .message.right .text-wrapper .text {
-         padding-top: 4%;
-         padding-bottom: 4%;
-         padding-left: 6%;
-         padding-right: 4%;
-         font-weight: lighter;
-         font-family: Verdana, Geneva, Tahoma, sans-serif;
-          font-size: 0.8rem;
-        }
-    
-      .message.right .small-date {
-          color: rgba(209, 213, 219);
-          margin-left: 70%;
-          font-size: 0.6rem;
-        }
-      }
+.message.left .avatar {
+  float: left;
+  margin-top: 20px;
+}
+
+.message.left .text-wrapper {
+  margin-left: 55px;
+  width: 50%;
+  border-radius: 50px;
+  background-color: rgba(243, 244, 246);
+  color: rgba(75, 85, 99);
+}
+
+.message.left .text-wrapper .text {
+  padding-top: 4%;
+  padding-bottom: 4%;
+  padding-left: 6%;
+  padding-right: 4%;
+  font-weight: lighter;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.message.left .small-date {
+  margin-left: 10%;
+  color: rgba(209, 213, 219);
+}
+
+.message.right {
+  overflow: hidden;
+  width: 80%;
+  float: right;
+}
+
+.message.right .avatar {
+  display: none;
+}
+
+.message.right .text-wrapper {
+  float: right;
+  margin-right: 1%;
+  width: 50%;
+  border-radius: 50px;
+  background-color: rgba(37, 99, 235);
+  color: white;
+}
+
+.message.right .text-wrapper .text {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 6%;
+  padding-right: 4%;
+  font-weight: lighter;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.message.right .small-date {
+  color: rgba(209, 213, 219);
+  margin-left: 81%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .message.left {
+    overflow: hidden;
+    width: 100%;
+  }
+  .message.left .avatar {
+    float: left;
+  }
+  .message.left .text-wrapper {
+    margin-left: 60px;
+    width: 60%;
+    border-radius: 50px;
+    background-color: rgba(243, 244, 246);
+    color: rgba(75, 85, 99);
+  }
+  .message.left .text-wrapper .text {
+    padding-top: 4%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 3%;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+  }
+  .message.left .small-date {
+    margin-left: 65px;
+    color: rgba(209, 213, 219);
+    font-size: 0.6rem;
+  }
+  .message.right {
+    overflow: hidden;
+    width: 100%;
+    float: right;
+  }
+  .message.right .avatar {
+    display: none;
+  }
+  .message.right .text-wrapper {
+    float: right;
+    margin-right: 2%;
+    margin-top: 0.5%;
+    height: max-content;
+    width: 60%;
+    border-radius: 50px;
+    background-color: rgba(37, 99, 235);
+    color: white;
+  }
+  .message.right .text-wrapper .text {
+    padding-top: 2%;
+    padding-bottom: 1%;
+    padding-left: 6%;
+    padding-right: 4%;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+  }
+  .message.right .small-date {
+    color: rgba(209, 213, 219);
+    float: right;
+    width: 100px;
+    margin-right: 10px;
+    font-size: 0.6rem;
+  }
+}

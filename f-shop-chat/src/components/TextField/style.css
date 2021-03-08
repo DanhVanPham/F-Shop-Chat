@@ -1,27 +1,27 @@
 .message_input_wrapper {
-  width: 72vw;
-  margin-left: -12vw;
+  width: 68vw;
+  margin-left: 10px;
   display: inline-block;
 }
 
-.message_input_wrapper .message_input{
+.message_input_wrapper .message_input {
   border: none;
   background-color: rgba(225, 229, 230, 0.966);
   width: 100%;
   height: 6vh;
-  margin-top: -5px;
+  margin-top: 14px;
   padding-left: 16px;
   font-size: 110%;
-  border-radius: 42px;
+  border-radius: 46px;
 }
 
-.message_input_wrapper .message_input::placeholder{
-    font-size: 0.9rem;
-    color: #999;
+.message_input_wrapper .message_input::placeholder {
+  font-size: 0.9rem;
+  color: #999;
 }
 
 .message_input_wrapper .message_input:focus {
-  border: rgb(101, 233, 75) solid;
+  border: rgb(131, 188, 226) solid;
   outline: none;
   transition: all 0.2s ease-out;
   font-size: 1.1rem;
@@ -29,66 +29,35 @@
 
 @media only screen and (max-width: 1000px) {
   .message_input_wrapper {
-    width: 94vw;
-    margin-top: -1.2vh;
-    margin-left: 10vw;
-    display: inline-block;
+    width: 92vw;
   }
-  
-  .message_input_wrapper .message_input{
-    border: none;
-    background-color: rgba(225, 229, 230, 0.966);
-    width: 100%;
-    height: 6vh;
-    padding-left: 16px;
-    margin-bottom: 20px;
-    font-size: 110%;
-    border-radius: 42px;
+  .message_input_wrapper .message_input {
+    margin-top: 6px;
   }
-  
-  .message_input_wrapper .message_input::placeholder{
-      font-size: 0.9rem;
-      color: #999;
-  }
-  
-  .message_input_wrapper .message_input:focus {
-    border-color: rgb(101, 233, 75);
-    outline: none;
-    transition: all 0.2s ease-out;
-    font-size: 1.1rem;
-  }
-
 }
 
-
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 720px) {
   .message_input_wrapper {
     width: 88vw;
-    margin-top: 1vh;
-    margin-left: -9vw;
-    display: inline-block;
   }
-  
-  .message_input_wrapper .message_input{
-    border: none;
-    background-color: rgba(225, 229, 230, 0.966);
-    width: 100%;
-    height: 6vh;
-    padding-left: 16px;
-    margin-bottom: 20px;
-    font-size: 110%;
-    border-radius: 42px;
+  .message_input_wrapper .message_input {
+    margin-top: 19px;
+    height: 4vh;
   }
-  
-  .message_input_wrapper .message_input::placeholder{
-      font-size: 0.9rem;
-      color: #999;
+}
+
+@media only screen and (max-width: 490px) {
+  .message_input_wrapper {
+    width: 80vw;
   }
-  
-  .message_input_wrapper .message_input:focus {
-    border-color: rgb(101, 233, 75);
-    outline: none;
-    transition: all 0.2s ease-out;
-    font-size: 1.1rem;
+  .message_input_wrapper .message_input {
+    margin-top: 30px;
+    height: 5vh;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .message_input_wrapper {
+    width: 75vw;
   }
 }

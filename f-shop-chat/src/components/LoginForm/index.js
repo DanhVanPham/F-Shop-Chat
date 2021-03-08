@@ -22,13 +22,13 @@ function FormLogin(props) {
             if (response.status === 200) {
                 const res = await AutheService.getUser(data.username);
                 if (res.status === 200) {
-                    const { userId, userName, avatar, roleId } = res.data;
-                    localStorage.setItem("account", JSON.stringify({ userId, userName, avatar, roleId }))
+                    const { userId, userName, name, avatar, roleId } = res.data;
+                    localStorage.setItem("account", JSON.stringify({ userId, userName, name, avatar, roleId }))
                     setRedirect(true);
                 }
             }
         } catch (err) {
-            if(!err.response){
+            if (!err.response) {
                 setError("password", {
                     type: "manual",
                     message: "Cannot connection to server.",
