@@ -51,7 +51,7 @@
 
 .user_online_box .header-user .user-features .icon {
     box-sizing: border-box;
-    padding: 2px;
+    padding: 5px;
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
@@ -299,6 +299,16 @@
         overflow-x: hidden;
         transition: 1s;
         margin-top: -0.2vh;
+    }
+    .user_online_box .header-user .user-features .icon {
+        box-sizing: border-box;
+        padding: 2px;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
     }
     .list_user_box .icon-close {
         display: block;

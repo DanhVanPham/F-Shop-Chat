@@ -75,8 +75,8 @@ function ChatBox() {
   return (
     <div className="chat-box">
       <div className="chat-box-header">
-        <div className="user-icon"><img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" width="50" className="avatar" /></div>
-        <div className="user-name">{currentUser.name}</div>
+        <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" className="avatar" />
+        <h6>Thanh Bình</h6>
       </div>
       <div className="chat-box-message">
         <MessageList user={true} />

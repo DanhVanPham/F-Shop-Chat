@@ -6,38 +6,33 @@
 
 .chat-box .chat-box-header {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     height: 10vh;
     border-bottom: 1px solid #Dee1e2;
+    box-sizing: border-box;
 }
 
-.chat-box .chat-box-header .user-icon {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    margin-left: 30px;
-}
 
-.chat-box .chat-box-header .user-icon .avatar {
+.chat-box .chat-box-header .avatar {
+    width: 20%;
     border-radius: 50%;
-    width: 58px;
-    height: 58px;
-    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.chat-box .chat-box-header .user-name {
-    padding-top: 4vh;
-    width: fit-content;
-    margin-left: 2%;
-    margin-top: -1vh;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.1765;
+.chat-box .chat-box-header h6 {
+    font-size: 20px;
+    margin-left: 5px;
+    font-family: 'Arsenal', sans-serif;
 }
+
 
 .chat-box .chat-box-message {
     height: 80vh;
-    max-height: 80vh;
-    float: left;
 }
 
 .chat-box .chat-box-input {
@@ -52,8 +47,7 @@
         flex-direction: column;
     }
     .chat-box .chat-box-header {
-        display: flex;
-        border-bottom: 1px solid #Dee1e2;
+        display: none;
     }
     .chat-box .chat-box-header .user-icon {
         display: none;

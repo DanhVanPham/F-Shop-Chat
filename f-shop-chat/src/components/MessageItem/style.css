@@ -1,3 +1,6 @@
+.message {
+  width: 100%;
+}
 .message.left {
   overflow: hidden;
   width: 80%;
@@ -5,29 +8,15 @@
 
 .message.left .avatar {
   float: left;
-  margin-top: 20px;
 }
 
 .message.left .text-wrapper {
-  margin-left: 55px;
-  width: 50%;
-  border-radius: 50px;
+  margin-left: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  display: inline-block;
   background-color: rgba(243, 244, 246);
   color: rgba(75, 85, 99);
-}
-
-.message.left .text-wrapper .text {
-  padding-top: 4%;
-  padding-bottom: 4%;
-  padding-left: 6%;
-  padding-right: 4%;
-  font-weight: lighter;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.message.left .small-date {
-  margin-left: 10%;
-  color: rgba(209, 213, 219);
 }
 
 .message.right {
@@ -43,10 +32,10 @@
 .message.right .text-wrapper {
   float: right;
   margin-right: 1%;
-  width: 50%;
   border-radius: 50px;
   background-color: rgba(37, 99, 235);
   color: white;
+  
 }
 
 .message.right .text-wrapper .text {
