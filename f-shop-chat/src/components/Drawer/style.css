@@ -6,6 +6,20 @@
     box-sizing: border-box;
 }
 
+.loading {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.loading-img {
+    display: block;
+}
+
+
+
 .user_online_box .header-user {
     display: grid;
     grid-template-columns: 65% 35%;

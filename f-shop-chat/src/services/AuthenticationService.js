@@ -5,11 +5,12 @@ import { get } from "../utils/api/apiCaller";
 const BASE_URL = BASE_URL_RESOURCE_SERVER;
 class AuthenticationService {
     isLoggedIn = () => {
-        if(JSON.parse(localStorage.getItem("account")) === null || JSON.parse(localStorage.getItem("account")) === undefined){
-            return false;
-        }
-        const { userId } = JSON.parse(localStorage.getItem("account"));
-        return userId !== "" && userId !== null && userId !== undefined;
+        // if(JSON.parse(localStorage.getItem("account")) === null || JSON.parse(localStorage.getItem("account")) === undefined){
+        //     return false;
+        // }
+        // const { userId } = JSON.parse(localStorage.getItem("account"));
+        // return userId !== "" && userId !== null && userId !== undefined;
+        return true;
     }
 
     getUserName = () => {

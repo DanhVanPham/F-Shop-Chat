@@ -9,7 +9,7 @@ import Menu from '../../assets/menu.png'
 import Plus from '../../assets/plus.png'
 import VideoPlus from '../../assets/video-plus.png';
 import DropDown from '../../assets/menu-down.png';
-
+import Loading from '../../assets/loading-big.svg';
 function Drawer() {
     const history = useHistory();
     const [active, setActive] = useState(false);
@@ -105,7 +105,9 @@ function Drawer() {
     }, [window.innerWidth]);
 
     if (loading) {
-        return <p>Loading...</p>
+        return <div className="loading">
+            <img src={Loading} className="loading-img" alt="loading" />
+        </div>
     }
 
     return (
@@ -117,7 +119,7 @@ function Drawer() {
                         <div className="app-title">Chat</div>
                     </div>
                     <div className="user-features">
-                        <div className="icon icon-drop pointer" onClick={useScriptMenu} onLoad={useScriptMenu}
+                        <div className="icon icon-drop pointer" onClick={useScriptMenu}
                             ref={inputRef}
                         >
                             <img src={DropDown} alt="Dropdown" />
@@ -131,7 +133,7 @@ function Drawer() {
                         <div className="icon icon-menu pointer" onClick={useScriptMenuListUser} >
                             <img src={Menu} alt="Menu" />
                         </div>
-                        <div className="drop-down-menu" id="drop-down-menu" onClick={useScriptMenu} onMouseLeave={useScriptMenu}>
+                        <div style={{'display': activeMenu ? 'block' : 'none'}} className="drop-down-menu" id="drop-down-menu" onClick={useScriptMenu} onMouseLeave={useScriptMenu}>
                             <ul className="list-menu">
                                 <li className="menu-pointer"><i className="user-name fa fa fa-user fa-2x"></i><div className="user-name-info">{JSON.parse(localStorage.getItem("account")).name}</div></li>
                                 <li className="menu-pointer" onClick={logout}><i className="logout fa fa-sign-out fa-2x" ></i><div className="text-logout">Logout</div></li>
@@ -148,7 +150,7 @@ function Drawer() {
                             </div>
                         </form>
                     </div>
-                    {contacts.length === 0 ? <p style={{ textAlign: 'center', color: 'red', fontSize: '2rem', marginTop: '40%' }}>Dont' have room</p> : <div>
+                    {contacts.length === 0 ? <p style={{ textAlign: 'center', fontFamily: "'Arsenal', sans-serif",color: 'grey', fontSize: '1rem', marginTop: '50%' }}>Dont' have room</p> : <div>
                         {contacts.map((contact, index) => {
                             return <div className="list-group-item" key={index}>
                                 <div className="media">
