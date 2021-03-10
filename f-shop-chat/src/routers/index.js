@@ -5,6 +5,7 @@ import { Switch } from 'react-router';
 import { PublicRoute } from './PublicRoute.js';
 import { PrivateRoute } from './PrivateRoute.js';
 import ChatBox from '../components/ChatBox/index';
+import { FirstPage } from '../components/FirstPage/index.js';
 
 
 const publicRoutes = [
@@ -21,6 +22,11 @@ const PrivateRoutes = [
         path: "/chat/:receiveId",
         name: "ChatBox",
         component: ChatBox
+    },
+    {
+        path: "/chat",
+        name: "FirstPage",
+        component: FirstPage
     }
 ]
 

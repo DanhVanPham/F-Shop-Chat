@@ -47,7 +47,7 @@ function FormLogin(props) {
     }
 
     return <Fragment>
-        {redirect ? <Redirect to="/chat/a" /> :
+        {redirect ? <Redirect to="/chat" /> :
             <form className="form">
                 <h1 className="title">Login</h1>
                 <InputField
