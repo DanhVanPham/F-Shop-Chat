@@ -63,7 +63,7 @@
   margin-left: 81%;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 900px) {
   .message.left {
     overflow: hidden;
     width: 100%;

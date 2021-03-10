@@ -3,8 +3,12 @@ import { useHistory } from 'react-router';
 import AuthenticationService from '../../services/AuthenticationService';
 import UserService from '../../services/UserService';
 import './style.css';
-
-
+import Account from '../../assets/account.svg';
+import Close from '../../assets/close.png';
+import Menu from '../../assets/menu.png'
+import Plus from '../../assets/plus.png'
+import VideoPlus from '../../assets/video-plus.png';
+import DropDown from '../../assets/menu-down.png';
 
 function Drawer() {
     const history = useHistory();
@@ -17,7 +21,6 @@ function Drawer() {
     const [loading, setLoading] = useState(false);
     const mounted = useRef(false);
     const [contacts, setContacts] = useState([]);
-    const userInfo = JSON.parse(localStorage.getItem("account"));
     const inputRef = useRef();
 
     const logout = async () => {
@@ -60,7 +63,7 @@ function Drawer() {
             const varIdDrop = document.getElementById("drop-down-menu").style;
             varIdDrop.display = "inline-block";
             varIdDrop.position = "absolute";
-            varIdDrop.top = `${inputRef.current.offsetTop + 48}px`;
+            varIdDrop.top = `${inputRef.current.offsetTop + 35}px`;
             varIdDrop.left = `${inputRef.current.offsetLeft - 10}px`;
             setActiveMenu(true);
         } else {
@@ -87,10 +90,10 @@ function Drawer() {
 
     useEffect(() => {
         function handleResize() {
-            if (dimmensions.width < 1000 && window.innerWidth >= 1000) {
+            if (dimmensions.width < 900 && window.innerWidth >= 900) {
                 window.location.reload();
                 setDimmensions({ height: window.innerHeight, width: window.innerWidth });
-            } else if (dimmensions.width >= 1000 && window.innerWidth < 1000) {
+            } else if (dimmensions.width >= 900 && window.innerWidth < 900) {
                 // document.getElementById("list_user").style.width = "0";
                 setDimmensions({ height: window.innerHeight, width: window.innerWidth });
             }
@@ -110,15 +113,24 @@ function Drawer() {
             <div className="user_online_box">
                 <div className="header-user">
                     <div className="user-avatar">
-                        <img src={userInfo.avatar} alt="user" width="50" className="avatar" />
+                        <img src={Account} alt="user" width="50" className="avatar" />
                         <div className="app-title">Chat</div>
                     </div>
                     <div className="user-features">
                         <div className="icon icon-drop pointer" onClick={useScriptMenu} onLoad={useScriptMenu}
-                            ref={inputRef}><i className="fa fa-caret-down fa-2x"></i></div>
-                        <div className="icon icon-video pointer"><span className="iconify" data-icon="mdi-video-plus" data-inline="false"></span></div>
-                        <div className="icon icon-plus pointer"><i className="fa fa-plus-square fa-2x"></i></div>
-                        <div className="icon icon-menu pointer" onClick={useScriptMenuListUser} ><i className="fa fa-bars fa-2x"></i></div>
+                            ref={inputRef}
+                        >
+                            <img src={DropDown} alt="Dropdown" />
+                        </div>
+                        <div className="icon icon-video pointer">
+                            <img src={VideoPlus} alt="Video" />
+                        </div>
+                        <div className="icon icon-plus pointer">
+                            <img src={Plus} alt="Add" />
+                        </div>
+                        <div className="icon icon-menu pointer" onClick={useScriptMenuListUser} >
+                            <img src={Menu} alt="Menu" />
+                        </div>
                         <div className="drop-down-menu" id="drop-down-menu" onClick={useScriptMenu} onMouseLeave={useScriptMenu}>
                             <ul className="list-menu">
                                 <li className="menu-pointer"><i className="user-name fa fa fa-user fa-2x"></i><div className="user-name-info">{JSON.parse(localStorage.getItem("account")).name}</div></li>
@@ -126,6 +138,9 @@ function Drawer() {
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div className="list_user_box" id="list_user">
+                    <div className="icon-close"><img src={Close} alt="close" onClick={useScriptMenuListUser} /></div>
                     <div className="text-search">
                         <form action="#">
                             <div className="message_input_wrapper">
@@ -133,24 +148,16 @@ function Drawer() {
                             </div>
                         </form>
                     </div>
-                </div>
-                <div className="list_user_box" id="list_user">
-                    <div className="icon-close"><p className="link-close" onClick={useScriptMenuListUser} >X</p></div>
                     {contacts.length === 0 ? <p style={{ textAlign: 'center', color: 'red', fontSize: '2rem', marginTop: '40%' }}>Dont' have room</p> : <div>
                         {contacts.map((contact, index) => {
                             return <div className="list-group-item" key={index}>
                                 <div className="media">
-                                    <div className="avatar-user">
-                                        <img src={contact.avatar} alt="user" width="50" className="avatar" />
-                                    </div>
+                                    <img src={Account} alt="user" className="avatar" />
                                     <div className="media-body">
-                                        <div className="media-title">
-                                            <h6 className="user-name">{contact.name}<small className="date">25 Dec</small></h6>
+                                        <div className="subtitle">
+                                            Thanh Bình
                                         </div>
-                                        <div className="media-message">
-
-                                            <p className="newest_messages">Hello, What your name?</p>
-                                        </div>
+                                        <div className="content">Đi chơi nào</div>
                                     </div>
                                 </div>
                             </div>

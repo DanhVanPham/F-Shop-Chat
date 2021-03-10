@@ -1,42 +1,48 @@
 .user_online_box {
     display: flex;
     flex-direction: column;
+    padding-left: 3%;
+    padding-right: 3%;
+    box-sizing: border-box;
 }
 
 .user_online_box .header-user {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 65% 35%;
+    align-items: baseline;
+    margin-top: 15px;
 }
 
 .user_online_box .header-user .user-avatar {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .user_online_box .header-user .user-avatar .avatar {
-    margin-top: 10%;
     margin-left: 1px;
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
     vertical-align: middle;
     border-radius: 50%;
+    margin-right: 10px;
 }
 
 .user_online_box .header-user .user-avatar .app-title {
     font-weight: bold;
-    font-size: 2.4rem;
-    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-family: 'Arsenal', sans-serif;
     display: block;
     align-self: center;
-    margin-top: 10%;
 }
 
 .user_online_box .header-user .user-features {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .list_user_box .icon-close {
@@ -44,32 +50,23 @@
 }
 
 .user_online_box .header-user .user-features .icon {
-    background-color: #f0f7f7;
-    height: 32px;
-    width: 32px;
-    justify-content: center;
+    box-sizing: border-box;
+    padding: 2px;
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
-    margin-top: 24%;
-    line-height: 1.36;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
 
-.user_online_box .header-user .user-features .icon-drop {
-    height: 38px;
-    padding-top: 0.5vh;
-    font-size: 16px;
+.user_online_box .header-user .user-features .icon img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
 }
 
-.user_online_box .header-user .user-features .icon-video {
-    padding-top: 1.1vh;
-    font-size: 22px;
-}
-
-.user_online_box .header-user .user-features .icon-plus {
-    padding-top: 1.4vh;
-    font-size: 10px;
-}
 
 .user_online_box .header-user .user-features .icon-menu {
     display: none;
@@ -79,18 +76,17 @@
     background-color: #d3dada;
 }
 
-.user_online_box .header-user .text-search {
-    position: relative;
-    width: 167%;
+.text-search {
+    width: 100%;
     margin-bottom: 10px;
 }
 
-.user_online_box .header-user .text-search .message_input_wrapper {
+.text-search .message_input_wrapper {
     width: 100%;
     margin-left: 0px;
 }
 
-.user_online_box .header-user .text-search .message_input_wrapper .message_input {
+.text-search .message_input_wrapper .message_input {
     background-color: rgba(249, 250, 251);
     width: 86%;
     height: 40px;
@@ -100,12 +96,12 @@
     border-radius: 24px;
 }
 
-.user_online_box .header-user .text-search .message_input_wrapper .message_input::placeholder {
+.text-search .message_input_wrapper .message_input::placeholder {
     font-size: 0.9rem;
     color: #999;
 }
 
-.user_online_box .header-user .text-search .message_input_wrapper .message_input:focus {
+.text-search .message_input_wrapper .message_input:focus {
     font-size: 1.2rem;
     border: lightseagreen solid;
     outline: none;
@@ -117,7 +113,6 @@
     box-sizing: border-box;
     overflow-y: auto;
     width: 100%;
-    max-height: 79vh;
 }
 
 .user_online_box .list_user_box::-webkit-scrollbar {
@@ -138,16 +133,14 @@
 }
 
 .list_user_box .list-group-item {
-    display: flex;
-    flex-direction: column;
     cursor: pointer;
     text-decoration: none;
     color: black;
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
     width: 96%;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin: 0 auto;
+    /* max-height: 50px; */
 }
 
 .user_online_box .list_user_box .list-group-item.active {
@@ -161,75 +154,89 @@
 .media {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
 }
 
-.media .avatar-user .avatar {
-    vertical-align: middle;
-    height: 50px;
+.media .avatar {
+    width: 20%;
     border-radius: 50%;
-    float: left;
-    margin: 20%;
+    display: 'block';
+    box-sizing: border-box;
+    padding: 2%;
 }
 
 .media .media-body {
+    width: 80%;
     display: flex;
-    flex-direction: column;
-    margin-left: 15px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.media .media-body .subtitle {
+    font-size: 18px;
+    font-family: 'Arsenal', sans-serif;
+    width: 100%;
+}
+
+.media .media-body .content {
+    font-size: 16px;
+    font-family: 'Arsenal', sans-serif;
+    color: grey;
+    width: 100%;
 }
 
 .media .media-body .media-title {
-    font-weight: bold;
-}
-
-.media .media-body .media-title .user-name {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    margin-top: 24px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Arsenal', sans-serif;
 }
 
 .media .media-body .media-title .date {
-    margin-left: 8px;
-    margin-top: -50px;
     color: rgba(107, 114, 128);
     font-weight: normal;
-    font-size: 0.8rem;
 }
 
-.media .media-body .media-message {
-    margin-top: -10%;
+/* .media .media-body .media-message {
 }
 
 .media .media-body .media-message .newest_messages {
-    margin-right: 2%;
-    margin-bottom: 4%;
     text-align: left;
-    font-size: 1.2rem;
-}
+} */
 
+/* drop down */
 .drop-down-menu {
     display: none;
-    position: absolute;
     background-color: white;
-    min-width: 160px;
+    min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    padding: 4px 0px;
+    padding: 0;
     z-index: 1;
+    box-sizing: border-box;
 }
 
 .drop-down-menu .list-menu {
     overflow: hidden;
+    width: 100%;
+    padding: 0;
     list-style-type: none;
 }
 
 .menu-pointer {
+    width: 95%;
+    min-height: 30px;
+    margin: 0 auto;
     cursor: pointer;
-    margin-top: 10px;
-    margin-left: -30px;
-    margin-right: 5px;
-    padding: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin-top: 5px;
     font-family: 'Arsenal', sans-serif;
     border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .menu-pointer:hover {
@@ -237,59 +244,33 @@
 }
 
 .menu-pointer .user-name {
+    font-size: 16px;
     display: inline-block;
 }
 
 .menu-pointer .logout {
+    font-size: 16px;
     display: inline-block;
 }
 
 .menu-pointer .user-name-info {
     display: inline-block;
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: bolder;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .menu-pointer .text-logout {
     display: inline-block;
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: bolder;
-    margin-left: 6px;
+    margin-left: 20px;
 }
 
-@media only screen and (max-width: 1000px) {
-    .user_online_box {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
+@media only screen and (max-width: 900px) {
     .user_online_box .header-user {
-        display: grid;
-        grid-template-columns: 44% 56%;
-    }
-    .user_online_box .header-user .user-avatar {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-    .user_online_box .header-user .user-avatar .avatar {
-        margin-top: 10%;
-        margin-bottom: 4%;
-        margin-left: 1px;
-        width: 68px;
-        height: 68px;
-        vertical-align: middle;
-        border-radius: 50%;
-    }
-    .user_online_box .header-user .user-avatar .app-title {
-        font-weight: bold;
-        font-size: 2.6rem;
-        font-family: 'Roboto', sans-serif;
-        display: block;
-        align-self: center;
-        margin-top: 10%;
+        margin-top: 6px;
+        margin-bottom: 10px;
     }
     .user_online_box .header-user .user-features {
         display: flex;
@@ -301,15 +282,9 @@
     }
     .user_online_box .header-user .user-features .icon-menu {
         display: block;
-        padding-top: 1.5vh;
-        font-size: 8px;
-        line-height: 1.34;
     }
     .user_online_box .header-user .user-features .icon:hover {
         background-color: #d3dada;
-    }
-    .user_online_box .header-user .text-search {
-        display: none;
     }
     /*----------------------------*/
     .user_online_box .list_user_box {
@@ -340,21 +315,8 @@
         color: black;
         cursor: pointer;
     }
-    .list_user_box .icon-close .link-close:hover {
-        color: blue;
-        outline: none;
-    }
-    .list_user_box .icon-close .link-close:active {
-        color: yellow;
-    }
     .list_user_box .list-group-item {
         margin-top: 4%;
-    }
-    .media .media-body {
-        margin-left: 40px;
-    }
-    .media .media-body .media-message {
-        margin-top: -20%;
     }
 }
 
