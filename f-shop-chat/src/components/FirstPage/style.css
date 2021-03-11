@@ -7,6 +7,7 @@
 }
 
 .notification {
+    text-align: center;
     color: grey;
     font-size: larger;
     font-family: 'Arsenal', sans-serif;

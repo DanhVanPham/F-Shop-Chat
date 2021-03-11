@@ -21,6 +21,7 @@ function Drawer() {
     const [loading, setLoading] = useState(false);
     const mounted = useRef(false);
     const [contacts, setContacts] = useState([]);
+    const [selectedRoom ,setSelectedRoom] = useState("");
     const inputRef = useRef();
 
     const logout = async () => {
@@ -70,6 +71,12 @@ function Drawer() {
             document.getElementById("drop-down-menu").style.display = "none";
             setActiveMenu(false);
         }
+    }
+
+    const clickHandler = (e, roomId) => {
+        setSelectedRoom(roomId);
+        history.push("/chat/" + roomId);
+
     }
 
     const useScriptMenuListUser = () => {
@@ -152,7 +159,7 @@ function Drawer() {
                     </div>
                     {contacts.length === 0 ? <p style={{ textAlign: 'center', fontFamily: "'Arsenal', sans-serif",color: 'grey', fontSize: '1rem', marginTop: '50%' }}>Dont' have room</p> : <div>
                         {contacts.map((contact, index) => {
-                            return <div className="list-group-item" key={index}>
+                            return <div className={`list-group-item ${selectedRoom === contact.roomId ? 'active': ''}`} key={index} onClick={e => clickHandler(e, contact.roomId)}>
                                 <div className="media">
                                     <img src={Account} alt="user" className="avatar" />
                                     <div className="media-body">
