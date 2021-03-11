@@ -1,30 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Message from '../MessageItem/index';
 import './style.css';
 
-function MessageList(props) {
+function MessageList({chatMessages}) {
     return (
         <ul className="messages">
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
-            <Message user={false} />
-            <Message user={true} />
+            {chatMessages && chatMessages.map((message, index) => {
+                return <Fragment key={index}>
+                    <Message message={message} />
+                </Fragment>
+            })}
         </ul>
     );
 }
