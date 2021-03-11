@@ -139,6 +139,7 @@
 
 
 .message-left {
+  margin-left: 12px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

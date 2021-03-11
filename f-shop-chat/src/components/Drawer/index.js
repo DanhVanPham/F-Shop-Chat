@@ -113,7 +113,7 @@ function Drawer() {
 
     if (loading) {
         return <div className="loading">
-            <img src={Loading} className="loading-img" alt="loading" />
+            <img src={Loading} width="50%" className="loading-img" alt="loading" />
         </div>
     }
 
