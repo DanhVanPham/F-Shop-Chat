@@ -4,13 +4,13 @@ import './style.css';
 
 function MessageList({chatMessages}) {
     return (
-        <ul className="messages">
+        <div className="messages">
             {chatMessages && chatMessages.map((message, index) => {
                 return <Fragment key={index}>
                     <Message message={message} />
                 </Fragment>
             })}
-        </ul>
+        </div>
     );
 }
 

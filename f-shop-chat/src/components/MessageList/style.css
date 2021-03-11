@@ -1,4 +1,11 @@
 .messages {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* .messages {
   overflow: hidden;
   height: 100%;
   display: block;
@@ -30,4 +37,4 @@
     display: block;
     overflow-y: scroll;
   }
-}
+} */

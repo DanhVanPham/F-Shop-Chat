@@ -1,9 +1,10 @@
-.message {
-  width: 100%;
+/* .message {
+  margin: 5px;
 }
 .message.left {
   overflow: hidden;
-  width: 80%;
+  width: 60%;
+  max-width: 60%;  
 }
 
 .message.left .avatar {
@@ -11,17 +12,19 @@
 }
 
 .message.left .text-wrapper {
+  word-break: break-all;
   margin-left: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 10px;
   display: inline-block;
-  background-color: rgba(243, 244, 246);
+  background-color: rgb(217, 222, 228);
   color: rgba(75, 85, 99);
 }
 
 .message.right {
   overflow: hidden;
   width: 80%;
+  max-width: 80%;  
   float: right;
 }
 
@@ -30,12 +33,16 @@
 }
 
 .message.right .text-wrapper {
-  float: right;
-  margin-right: 1%;
-  border-radius: 50px;
+  word-break: break-all;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
   background-color: rgba(37, 99, 235);
-  color: white;
-  
+  color: white; 
+}
+
+.message.right .text-wrapper {
+  float: right;
 }
 
 .message.right .text-wrapper .text {
@@ -51,7 +58,7 @@
   color: rgba(209, 213, 219);
   margin-left: 81%;
 }
-
+/* 
 @media only screen and (max-width: 900px) {
   .message.left {
     overflow: hidden;
@@ -115,4 +122,79 @@
     margin-right: 10px;
     font-size: 0.6rem;
   }
+} */
+
+.message-wrapper {
+  margin-top: 20px;
+  width: 100%;
+  font-family: 'Arsenal', sans-serif;
 }
+
+.message-right {
+  /* max-width: 80%; */
+  float:right;
+  max-width: 60%;
+  margin-right: 10px;
+}
+
+
+.message-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  min-height: 40px;
+  width: 80%;
+}
+
+.text-wrapper {
+  min-height: 30px;
+  /* min-width: 30px; */
+  margin-left: 10px;
+  border-radius: 18px;
+  
+  display: flex;
+  align-items: center;
+}
+
+.text-wrapper.left {
+  background-color: rgb(216, 220, 226);
+  color: black;
+}
+
+.text-wrapper.right {
+  background-color: rgba(37, 99, 235);
+  color: white;
+}
+
+
+.text {
+  vertical-align: baseline;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  word-break: break-all;
+}
+
+/* .message-right {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.avatar {
+  display: block;
+  width: 20%
+}
+
+.message-right.text-wrapper {
+  width: 80%;
+}
+
+.text-wrapper {
+  word-break: break-all;
+} */

@@ -26,6 +26,7 @@ const PrivateRoutes = [
     {
         path: "/chat",
         name: "FirstPage",
+        exact: true,
         component: FirstPage
     }
 ]
@@ -38,7 +39,11 @@ export const RouterComponent = () => {
             })}
             <Home>
                 {PrivateRoutes.map((route) => {
-                    return <PrivateRoute key={route.name} path={route.path} component={route.component} />
+                    if (route.exact) {
+                        return <PrivateRoute exact={true} key={route.name} path={route.path} component={route.component} />
+                    } else {
+                        return <PrivateRoute key={route.name} path={route.path} component={route.component} />
+                    }
                 })}
             </Home>
         </Switch>
