@@ -135,7 +135,7 @@ function Drawer() {
 
     const clickHandler = (e, roomId) => {
         setSelectedRoom(roomId);
-        UseScriptMenuListUser();
+        // UseScriptMenuListUser();
         history.push("/chat/" + roomId);
     }
 
