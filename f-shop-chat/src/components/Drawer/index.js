@@ -166,11 +166,18 @@ function Drawer() {
         }
     }
 
+    const loadContent = (contact) => {
+        const content = contact.chatMessages[contact.chatMessages.length - 1] && contact.chatMessages[contact.chatMessages.length - 1].content
+        if(content !== undefined){
+            return content && content.length < 10 ? content : (content.substring(0, 10) + "...")
+        }
+        return null;
+    }
+
     const loadSearch = async (search) => {
         try {
             const response = await AuthenticationService.getSearch(search);
             if (response.status === 200) {
-                console.log(response);
                 setSearchUser(response.data);
             }
         } catch (ex) {
@@ -234,7 +241,7 @@ function Drawer() {
                                                 {contact.roomName}
                                             </div>
                                             <div className="content">
-                                                {contact.chatMessages[contact.chatMessages.length - 1] && contact.chatMessages[contact.chatMessages.length - 1].content}
+                                                {loadContent(contact)}
                                             </div>
                                         </div>
                                     </div>

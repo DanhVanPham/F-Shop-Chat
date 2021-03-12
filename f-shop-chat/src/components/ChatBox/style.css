@@ -14,7 +14,6 @@
     box-sizing: border-box;
 }
 
-
 .chat-box .chat-box-header .avatar {
     width: 20%;
     border-radius: 50%;
@@ -30,17 +29,34 @@
     font-family: 'Arsenal', sans-serif;
 }
 
-
 .chat-box .chat-box-message {
     height: 80vh;
+    overflow: auto;
 }
+/* 
+.chat-box .chat-box-message::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 4rem;
+}
+
+.chat-box .chat-box-message::-webkit-scrollbar-track {
+    width: 8px;
+    background: black;
+    border-radius: 4rem;
+}
+
+.chat-box .chat-box-message:-webkit-scrollbar-thumb {
+    width: 2em;
+    background-color: white;
+    border-radius: 4rem;
+} */
 
 .chat-box .chat-box-input {
     height: 9vh;
     max-height: 9vh;
 }
 
-@media only screen and (max-width: 900px) {
+/* @media only screen and (max-width: 900px) {
     .chat-box {
         overflow: hidden;
         display: flex;
@@ -89,4 +105,4 @@
         height: 68vh;
         max-height: 68vh;
     }
-}
+} */
