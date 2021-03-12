@@ -135,11 +135,11 @@ function Drawer() {
 
     const clickHandler = (e, roomId) => {
         setSelectedRoom(roomId);
+        UseScriptMenuListUser();
         history.push("/chat/" + roomId);
-
     }
 
-    const useScriptMenuListUser = () => {
+    const UseScriptMenuListUser = () => {
         if (active) {
             document.getElementById("list_user").style.width = "0";
             setActive(false);
@@ -206,7 +206,7 @@ function Drawer() {
                         <div className="icon icon-plus pointer">
                             <img src={Plus} alt="Add" />
                         </div>
-                        <div className="icon icon-menu pointer" onClick={useScriptMenuListUser} >
+                        <div className="icon icon-menu pointer" onClick={UseScriptMenuListUser} >
                             <img src={Menu} alt="Menu" />
                         </div>
                         <div style={{ 'display': activeMenu ? 'block' : 'none' }} className="drop-down-menu" id="drop-down-menu" onClick={useScriptMenu} onMouseLeave={useScriptMenu}>
@@ -218,9 +218,9 @@ function Drawer() {
                     </div>
                 </div>
                 <div className="list_user_box" id="list_user">
-                    <div className="icon-close"><img src={Close} alt="close" onClick={useScriptMenuListUser} /></div>
+                    <div className="icon-close"><img src={Close} alt="close" onClick={UseScriptMenuListUser} /></div>
                     <div className="text-search">
-                        <form action="#">
+                        <form className="form-search">
                             <div className="message_input_wrapper">
                                 <input onFocus={focusHandler} onBlur={blurHandler} onChange={changeHandler} type="text" className="message_input" placeholder="Tìm kiếm trên Messenger" />
                             </div>

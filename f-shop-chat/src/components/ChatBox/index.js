@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './style.css';
 import MessageList from '../MessageList/index';
 import PropTypes from 'prop-types';
@@ -11,6 +11,7 @@ ChatBox.propTypes = {
 
 var stompClient = null;
 function ChatBox() {
+
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState(undefined);
   const [text, setText] = useState("");
@@ -19,10 +20,22 @@ function ChatBox() {
   const [room, setRoom] = useState(undefined);
   const [chatRoomId, setChatRoomId] = useState(location.pathname.substring(location.pathname.lastIndexOf("/") + 1));
 
+  const messagesRef = useRef(null);
+
+
   useEffect(() => {
     connect();
     getRoom();
   }, []);
+
+  useEffect(() => {
+    if (messagesRef) {
+      messagesRef.current.addEventListener('DOMNodeInserted', event => {
+        const { currentTarget: target } = event;
+        target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
+      });
+    }
+  }, [])
 
   useEffect(() => {
     if (newMessage === undefined) return;
@@ -89,11 +102,11 @@ function ChatBox() {
         <img src="https://s2.linkimage.com/images/062/62200/preview_73331.jpg" alt="user" className="avatar" />
         <h6>{room && room.roomName}</h6>
       </div>
-      <div className="chat-box-message">
+      <div className="chat-box-message" ref={messagesRef}>
         <MessageList chatMessages={room && room.chatMessages} />
       </div>
-      <div className="chat-box-input">
-        <form onSubmit={e => sendMessage(e, text)}>
+      <div>
+        <form className="chat-box-input" onSubmit={e => sendMessage(e, text)}>
           <Input value={text} onChange={e => setText(e.target.value)} />
         </form>
       </div>

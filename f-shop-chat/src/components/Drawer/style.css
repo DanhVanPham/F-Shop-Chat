@@ -103,31 +103,35 @@
 .text-search {
     width: 100%;
     margin-bottom: 10px;
+    display: inline-block;
 }
 
-.text-search .message_input_wrapper {
+.text-search .form-search .message_input_wrapper {
     width: 100%;
     margin-left: 0px;
 }
 
-.text-search .message_input_wrapper .message_input {
+.text-search .form-search .message_input_wrapper .message_input {
     background-color: rgba(249, 250, 251);
+    border: none;
     width: 86%;
     height: 40px;
+    padding-left: 16px;
     margin-top: 2vh;
     margin-left: 5%;
     font-size: 110%;
     border-radius: 24px;
 }
 
-.text-search .message_input_wrapper .message_input::placeholder {
+.text-search .form-search .message_input_wrapper .message_input::placeholder {
     font-size: 0.9rem;
     color: #999;
 }
 
-.text-search .message_input_wrapper .message_input:focus {
+.text-search .form-search .message_input_wrapper .message_input:focus {
     font-size: 1.2rem;
     border: lightseagreen solid;
+    transition: all 0.2s ease-out;
     outline: none;
 }
 

@@ -33,76 +33,9 @@
     height: 80vh;
     overflow: auto;
 }
-/* 
-.chat-box .chat-box-message::-webkit-scrollbar {
-    width: 8px;
-    border-radius: 4rem;
-}
-
-.chat-box .chat-box-message::-webkit-scrollbar-track {
-    width: 8px;
-    background: black;
-    border-radius: 4rem;
-}
-
-.chat-box .chat-box-message:-webkit-scrollbar-thumb {
-    width: 2em;
-    background-color: white;
-    border-radius: 4rem;
-} */
 
 .chat-box .chat-box-input {
-    height: 9vh;
-    max-height: 9vh;
+    height: 10vh;
+    display: flex;
+    align-items: center;
 }
-
-/* @media only screen and (max-width: 900px) {
-    .chat-box {
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-    .chat-box .chat-box-header {
-        display: none;
-    }
-    .chat-box .chat-box-header .user-icon {
-        display: none;
-    }
-    .chat-box .chat-box-header .user-name {
-        padding-top: 3.5vh;
-        width: 100%;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 1.8rem;
-        font-weight: 600;
-        line-height: 1.1765;
-        text-align: center;
-    }
-    .chat-box .chat-box-message {
-        height: 65vh;
-        max-height: 65vh;
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    .chat-box {
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-    .chat-box .chat-box-message {
-        height: 66vh;
-        max-height: 66vh;
-    }
-}
-
-@media only screen and (max-width: 380px) {
-    .chat-box {
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-    .chat-box .chat-box-message {
-        height: 68vh;
-        max-height: 68vh;
-    }
-} */
