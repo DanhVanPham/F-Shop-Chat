@@ -41,6 +41,10 @@ class AuthenticationService {
     getUser = (username) => {
         return get(BASE_URL,`/users/${username}`, {}, {});
     }
+
+    getSearch = (search) => {
+        return get(BASE_URL, `/users/contacts`, {}, {name: search});
+    }
 }
 
 export default new AuthenticationService();

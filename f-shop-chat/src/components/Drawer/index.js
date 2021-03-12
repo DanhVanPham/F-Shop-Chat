@@ -10,20 +10,86 @@ import Plus from '../../assets/plus.png'
 import VideoPlus from '../../assets/video-plus.png';
 import DropDown from '../../assets/menu-down.png';
 import Loading from '../../assets/loading-big.svg';
+let stompClient = null;
 function Drawer() {
-    const history = useHistory();
+    //state
     const [active, setActive] = useState(false);
     const [activeMenu, setActiveMenu] = useState(false);
     const [dimmensions, setDimmensions] = useState({
         height: window.innerHeight,
         width: window.innerWidth
     })
-    const [loading, setLoading] = useState(false);
     const mounted = useRef(false);
     const [contacts, setContacts] = useState([]);
-    const [selectedRoom ,setSelectedRoom] = useState("");
-    const inputRef = useRef();
+    const [selectedRoom, setSelectedRoom] = useState("");
+    const [isFocus, setIsFocus] = useState(false);
+    // const [text, setText] = useState("");
+    const [searchUser, setSearchUser] = useState([]);
+    const [newMessage, setNewMessage] = useState(undefined);
 
+    //variable
+    const inputRef = useRef();
+    const history = useHistory();
+
+    //useEffect
+
+    useEffect(() => {
+        function handleResize() {
+            if (dimmensions.width < 900 && window.innerWidth >= 900) {
+                window.location.reload();
+                setDimmensions({ height: window.innerHeight, width: window.innerWidth });
+            } else if (dimmensions.width >= 900 && window.innerWidth < 900) {
+                // document.getElementById("list_user").style.width = "0";
+                setDimmensions({ height: window.innerHeight, width: window.innerWidth });
+            }
+        }
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [window.innerWidth]);
+
+    useEffect(() => {
+        mounted.current = true;
+        connect()
+        loadContacts();
+        return () => { mounted.current = false }
+    }, [])
+
+    useEffect(() => {
+        if (newMessage === undefined) return;
+        console.log("render")
+        loadContacts();
+    }, [newMessage])
+
+    //connection
+    const connect = () => {
+        const Stomp = require("stompjs");
+        var SockJS = require("sockjs-client");
+        SockJS = new SockJS("http://localhost:9090/ws");
+        stompClient = Stomp.over(SockJS);
+        stompClient.connect({}, onConnected, onError);
+    };
+
+    const onConnected = () => {
+        console.log("ko vo luon")
+        stompClient.subscribe(
+            "/user/" + AuthenticationService.getUserId() + "/queue/messages",
+            onMessageReceived
+        );
+    };
+
+    const onError = (err) => {
+        console.log(err);
+    };
+
+    const onMessageReceived = (msg) => {
+        if (msg.body) {
+            setNewMessage(msg.body);
+        }
+    };
+
+    //function
     const logout = async () => {
         try {
             const response = await AuthenticationService.logout(AuthenticationService.getUserName());
@@ -41,21 +107,15 @@ function Drawer() {
 
     const loadContacts = async () => {
         try {
-            if (mounted.current) {
-                setLoading(true);
-            }
             const response = await UserService.getContactUsers(AuthenticationService.getUserId());
             if (response.status === 200) {
                 if (mounted.current) {
+                    console.log(response)
                     setContacts(response.data);
                 }
             }
         } catch (ex) {
             console.log(ex)
-        } finally {
-            if (mounted.current) {
-                setLoading(false);
-            }
         }
     }
 
@@ -89,32 +149,34 @@ function Drawer() {
         }
     }
 
-    useEffect(() => {
-        mounted.current = true;
-        loadContacts();
-        return () => { mounted.current = false }
-    }, [])
+    const focusHandler = (e) => {
+        setIsFocus(true);
+    }
 
-    useEffect(() => {
-        function handleResize() {
-            if (dimmensions.width < 900 && window.innerWidth >= 900) {
-                window.location.reload();
-                setDimmensions({ height: window.innerHeight, width: window.innerWidth });
-            } else if (dimmensions.width >= 900 && window.innerWidth < 900) {
-                // document.getElementById("list_user").style.width = "0";
-                setDimmensions({ height: window.innerHeight, width: window.innerWidth });
+    const blurHandler = e => {
+        setIsFocus(false);
+    }
+
+    const changeHandler = e => {
+        // setText(e.target.value);
+        if (e.target.value.trim() !== '') {
+            loadSearch(e.target.value.trim())
+        } else {
+            setSearchUser([])
+        }
+    }
+
+    const loadSearch = async (search) => {
+        try {
+            const response = await AuthenticationService.getSearch(search);
+            if (response.status === 200) {
+                console.log(response);
+                setSearchUser(response.data);
             }
+        } catch (ex) {
+            setSearchUser([])
+            console.log(ex);
         }
-        window.addEventListener('resize', handleResize)
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [window.innerWidth]);
-
-    if (loading) {
-        return <div className="loading">
-            <img src={Loading} width="50%" className="loading-img" alt="loading" />
-        </div>
     }
 
     return (
@@ -140,7 +202,7 @@ function Drawer() {
                         <div className="icon icon-menu pointer" onClick={useScriptMenuListUser} >
                             <img src={Menu} alt="Menu" />
                         </div>
-                        <div style={{'display': activeMenu ? 'block' : 'none'}} className="drop-down-menu" id="drop-down-menu" onClick={useScriptMenu} onMouseLeave={useScriptMenu}>
+                        <div style={{ 'display': activeMenu ? 'block' : 'none' }} className="drop-down-menu" id="drop-down-menu" onClick={useScriptMenu} onMouseLeave={useScriptMenu}>
                             <ul className="list-menu">
                                 <li className="menu-pointer"><i className="user-name fa fa fa-user fa-2x"></i><div className="user-name-info">{JSON.parse(localStorage.getItem("account")).name}</div></li>
                                 <li className="menu-pointer" onClick={logout}><i className="logout fa fa-sign-out fa-2x" ></i><div className="text-logout">Logout</div></li>
@@ -153,25 +215,33 @@ function Drawer() {
                     <div className="text-search">
                         <form action="#">
                             <div className="message_input_wrapper">
-                                <input type="text" className="message_input" placeholder="Tìm kiếm trên Messenger" />
+                                <input onFocus={focusHandler} onBlur={blurHandler} onChange={changeHandler} type="text" className="message_input" placeholder="Tìm kiếm trên Messenger" />
                             </div>
                         </form>
                     </div>
-                    {contacts.length === 0 ? <p style={{ textAlign: 'center', fontFamily: "'Arsenal', sans-serif",color: 'grey', fontSize: '1rem', marginTop: '50%' }}>Dont' have room</p> : <div>
-                        {contacts.map((contact, index) => {
-                            return <div className={`list-group-item ${selectedRoom === contact.roomId ? 'active': ''}`} key={index} onClick={e => clickHandler(e, contact.roomId)}>
-                                <div className="media">
-                                    <img src={Account} alt="user" className="avatar" />
-                                    <div className="media-body">
-                                        <div className="subtitle">
-                                            Thanh Bình
+                    {isFocus ? <div style={{ 'width': '100%' }}>
+                        {searchUser.length === 0 ? <div className="loading">
+                            <img src={Loading} className="loading-img" alt="Loading" width="30%" />
+                        </div> : "cc"}
+                    </div> : <Fragment>
+                        {contacts.length === 0 ? <p style={{ textAlign: 'center', fontFamily: "'Arsenal', sans-serif", color: 'grey', fontSize: '1rem', marginTop: '50%' }}>Dont' have room</p> : <div>
+                            {contacts.map((contact, index) => {
+                                return <div className={`list-group-item ${selectedRoom === contact.roomId ? 'active' : ''}`} key={index} onClick={e => clickHandler(e, contact.roomId)}>
+                                    <div className="media">
+                                        <img src={Account} alt="user" className="avatar" />
+                                        <div className="media-body">
+                                            <div className="subtitle">
+                                                {contact.roomName}
+                                            </div>
+                                            <div className="content">
+                                                {contact.chatMessages[contact.chatMessages.length - 1] && contact.chatMessages[contact.chatMessages.length - 1].content}
+                                            </div>
                                         </div>
-                                        <div className="content">Đi chơi nào</div>
                                     </div>
                                 </div>
-                            </div>
-                        })}
-                    </div>}
+                            })}
+                        </div>}
+                    </Fragment>}
                 </div>
             </div>
         </Fragment>

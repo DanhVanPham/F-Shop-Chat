@@ -12,6 +12,7 @@ ChatBox.propTypes = {
 var stompClient = null;
 function ChatBox() {
   const [loading, setLoading] = useState(false);
+  const [newMessage, setNewMessage] = useState(undefined);
   const [text, setText] = useState("");
   const currentUser = JSON.parse(localStorage.getItem("account"));
   const location = useLocation();
@@ -24,9 +25,9 @@ function ChatBox() {
   }, []);
 
   useEffect(() => {
-    if(room === undefined) return;
-    getRoom()
-  }, [room])
+    if (newMessage === undefined) return;
+    getRoom();
+  }, [newMessage])
 
   const getRoom = async () => {
     try {
@@ -63,15 +64,7 @@ function ChatBox() {
 
   const onMessageReceived = (msg) => {
     if (msg.body) {
-      console.log(msg)
-      const message = JSON.parse(msg.body);
-      if(room !== undefined){
-        const messageList = [...room.chatMessages];
-        messageList.push(message);
-        room.chatMessages = messageList;
-        setRoom(room);
-
-      }
+      setNewMessage(msg.body);
     }
   };
 
