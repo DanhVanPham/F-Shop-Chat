@@ -167,9 +167,22 @@ function Drawer() {
     }
 
     const loadContent = (contact) => {
-        const content = contact.chatMessages[contact.chatMessages.length - 1] && contact.chatMessages[contact.chatMessages.length - 1].content
-        if(content !== undefined){
-            return content && content.length < 10 ? content : (content.substring(0, 10) + "...")
+        if(contact.chatMessages !== null && contact.chatMessages !== undefined && contact.chatMessages.length > 0){
+            let lastedMessage = null;
+            let max = 0;
+            let content = "";
+            for(let message of contact.chatMessages){
+                let time = new Date(message.sendTime).getTime()
+                if(time > max){
+                    max = time;
+                    content = message.content;
+                }
+            }
+            // const content = contact.chatMessages[0] && contact.chatMessages[0].content;
+            if (content !== undefined) {
+                return content && content.length < 10 ? content : (content.substring(0, 10) + "...")
+            }
+            return null;
         }
         return null;
     }
@@ -228,8 +241,21 @@ function Drawer() {
                     </div>
                     {isFocus ? <div style={{ 'width': '100%' }}>
                         {searchUser.length === 0 ? <div className="loading">
-                            <img src={Loading} className="loading-img" alt="Loading" width="30%" />
-                        </div> : "cc"}
+                            <img src={Loading} className="loading-img" alt="Loading" width="10%"/>
+                        </div> : <div style={{'width': '100%'}}>
+                            {searchUser.map((user, index) => {
+                                return <div className="list-group-item" key={index} onClick>
+                                    <div className="media">
+                                        <img src={Account} alt="user" className="avatar" />
+                                        <div className="media-body">
+                                            <div className="subtitle">
+                                                {user.name}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            })}
+                        </div>}
                     </div> : <Fragment>
                         {contacts.length === 0 ? <p style={{ textAlign: 'center', fontFamily: "'Arsenal', sans-serif", color: 'grey', fontSize: '1rem', marginTop: '50%' }}>Dont' have room</p> : <div>
                             {contacts.map((contact, index) => {

@@ -1,3 +1,7 @@
+.bold {
+    font-weight: 600;
+}
+
 .user_online_box {
     display: flex;
     flex-direction: column;
