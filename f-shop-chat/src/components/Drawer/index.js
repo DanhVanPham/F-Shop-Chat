@@ -187,6 +187,17 @@ function Drawer() {
         return null;
     }
 
+    const getName = (contact) => {
+        if(contact.roomName === undefined || contact.roomName === null){
+            return false;
+        }
+        if(contact.roomName === ""){
+            const roomName = contact.participants && contact.participants.filter(item => item.userId !== AuthenticationService.getUserId()).map(item => item.name).join(" và ")
+            return roomName;
+        }
+        return contact.roomName;
+    }
+
     const loadSearch = async (search) => {
         try {
             const response = await AuthenticationService.getSearch(search);
@@ -195,7 +206,6 @@ function Drawer() {
             }
         } catch (ex) {
             setSearchUser([])
-            console.log(ex);
         }
     }
 
@@ -216,7 +226,7 @@ function Drawer() {
                         <div className="icon icon-video pointer">
                             <img src={VideoPlus} alt="Video" />
                         </div>
-                        <div className="icon icon-plus pointer">
+                        <div className="icon icon-plus pointer" onClick={e => history.push('/create/chat')}>
                             <img src={Plus} alt="Add" />
                         </div>
                         <div className="icon icon-menu pointer" onClick={UseScriptMenuListUser} >
@@ -264,7 +274,7 @@ function Drawer() {
                                         <img src={Account} alt="user" className="avatar" />
                                         <div className="media-body">
                                             <div className="subtitle">
-                                                {contact.roomName}
+                                                {getName(contact)}
                                             </div>
                                             <div className="content">
                                                 {loadContent(contact)}

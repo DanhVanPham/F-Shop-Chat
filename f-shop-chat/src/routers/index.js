@@ -6,6 +6,7 @@ import { PublicRoute } from './PublicRoute.js';
 import { PrivateRoute } from './PrivateRoute.js';
 import ChatBox from '../components/ChatBox/index';
 import { FirstPage } from '../components/FirstPage/index.js';
+import { CreatePage } from '../components/CreatePage/index.js';
 
 
 const publicRoutes = [
@@ -18,6 +19,12 @@ const publicRoutes = [
 ]
 
 const PrivateRoutes = [
+    {
+        path: "/create/chat",
+        name: 'Create',
+        component: CreatePage,
+        // exact: true
+    },
     {
         path: "/chat/:receiveId",
         name: "ChatBox",
