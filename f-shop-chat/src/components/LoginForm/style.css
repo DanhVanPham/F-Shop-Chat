@@ -1,0 +1,100 @@
+
+    .title {
+      font-family: 'Arsenal', sans-serif;
+      font-weight: 800;
+      font-size: 55px;
+      color: #6c63ff;
+      margin: 0;
+      text-align: center;
+    }
+
+    .form {
+      padding: 20px 50px;
+      width: 400px;
+      margin: 0 auto;
+      align-items: center;
+      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+      border-radius: 10px;
+    }
+
+    .button-login {
+      width: 100%;
+      height: 40px;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      color: white;
+      background-color: #6c63ff;
+      border: none;
+      border-radius: 45px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .button-login:hover {
+      background-color: #6c63ff;
+      box-shadow: 0px 3px 4px #847cff;
+      color: #fff;
+      /* transform: translateY(-7px); */
+    }
+
+    .link-create {
+      font-family: 'Arsenal', sans-serif;
+      text-align: center;
+    }
+
+    .link-create a {
+      text-decoration: none;
+      color: #6c63ff;
+    }
+
+    .link-create-account {
+      display: block;
+      background-color: #42b72a;
+      width: 78%;
+      height: 10px;
+      margin-top: 10%;
+      margin-bottom: 4%;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 15px;
+      padding-bottom: 32px;
+    }
+
+    .link-create-account:hover {
+      background-color: #056aee;
+      border-radius: 16px;
+      transition: all 0.4s ease-out;
+      cursor: pointer;
+    }
+
+    .link-create-account a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .margin {
+      margin-top: 40px
+    }
+
+    @media screen and (max-width: 900px) {
+      .form {
+        width: 90%;
+        box-sizing: border-box;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .title {
+        font-size: 30px;
+      }
+
+      .margin {
+        margin-top: 25px
+      }
+    }

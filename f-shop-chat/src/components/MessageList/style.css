@@ -1,0 +1,10 @@
+.messages {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  /* min-height: 130vh; */
+  /* overflow-y: scroll; */
+}
+

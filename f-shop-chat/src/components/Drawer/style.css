@@ -1,0 +1,389 @@
+.bold {
+    font-weight: 600;
+}
+
+.user_online_box {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3%;
+    padding-right: 3%;
+    box-sizing: border-box;
+}
+
+.modal {
+    position: absolute;
+    min-width: 360px;
+    min-height: 300px;
+    background-color: pink;
+}
+
+.loading {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+}
+
+.loading-img {
+    display: block;
+}
+
+.active {
+    background-color: #d3dada;
+}
+
+
+.user_online_box .header-user {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    align-items: baseline;
+    margin-top: 15px;
+}
+
+.user_online_box .header-user .user-avatar {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user_online_box .header-user .user-avatar .avatar {
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user_online_box .header-user .user-avatar .app-title {
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Arsenal', sans-serif;
+    display: block;
+    align-self: center;
+}
+
+.user_online_box .header-user .user-features {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.list_user_box .icon-close {
+    display: none;
+}
+
+.user_online_box .header-user .user-features .icon {
+    box-sizing: border-box;
+    padding: 5px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.user_online_box .header-user .user-features .icon img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+}
+
+
+.user_online_box .header-user .user-features .icon-menu {
+    display: none;
+}
+
+.user_online_box .header-user .user-features .icon:hover {
+    background-color: #d3dada;
+}
+
+.text-search {
+    width: 100%;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.text-search .form-search .message_input_wrapper {
+    width: 100%;
+    margin-left: 0px;
+}
+
+.text-search .form-search .message_input_wrapper .message_input {
+    background-color: rgba(249, 250, 251);
+    border: none;
+    width: 86%;
+    height: 40px;
+    padding-left: 16px;
+    margin-top: 2vh;
+    margin-left: 5%;
+    font-size: 110%;
+    border-radius: 24px;
+}
+
+.text-search .form-search .message_input_wrapper .message_input::placeholder {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.text-search .form-search .message_input_wrapper .message_input:focus {
+    font-size: 1.2rem;
+    border: lightseagreen solid;
+    transition: all 0.2s ease-out;
+    outline: none;
+}
+
+/*------------List User Box----------------*/
+
+.user_online_box .list_user_box {
+    box-sizing: border-box;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.user_online_box .list_user_box::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 4rem;
+}
+
+.user_online_box .list_user_box::-webkit-scrollbar-track {
+    width: 8px;
+    background: mediumturquoise;
+    border-radius: 4rem;
+}
+
+.user_online_box .list_user_box::-webkit-scrollbar-thumb {
+    width: 2em;
+    background-color: #f5f5f5;
+    border-radius: 4rem;
+}
+
+.list_user_box .list-group-item {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 96%;
+    margin: 0 auto;
+    /* max-height: 50px; */
+}
+
+.user_online_box .list_user_box .list-group-item.active {
+    background-color: #d3dada;
+}
+
+
+.list_user_box .list-group-item:hover {
+    background-color: rgb(214, 214, 218);
+}
+
+.media {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.media .avatar {
+    width: 20%;
+    border-radius: 50%;
+    display: 'block';
+    box-sizing: border-box;
+    padding: 2%;
+}
+
+.media .media-body {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.media .media-body .subtitle {
+    font-size: 18px;
+    font-family: 'Arsenal', sans-serif;
+    width: 100%;
+}
+
+.media .media-body .content {
+    font-size: 16px;
+    font-family: 'Arsenal', sans-serif;
+    color: grey;
+    width: 100%;
+}
+
+.media .media-body .media-title {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Arsenal', sans-serif;
+}
+
+.media .media-body .media-title .date {
+    color: rgba(107, 114, 128);
+    font-weight: normal;
+}
+
+/* .media .media-body .media-message {
+}
+
+.media .media-body .media-message .newest_messages {
+    text-align: left;
+} */
+
+/* drop down */
+.drop-down-menu {
+    display: none;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 0;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.drop-down-menu .list-menu {
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu-pointer {
+    width: 95%;
+    min-height: 30px;
+    margin: 0 auto;
+    cursor: pointer;
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    font-family: 'Arsenal', sans-serif;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-pointer:hover {
+    background-color: rgb(227, 235, 227);
+}
+
+.menu-pointer .user-name {
+    font-size: 16px;
+    display: inline-block;
+}
+
+.menu-pointer .logout {
+    font-size: 16px;
+    display: inline-block;
+}
+
+.menu-pointer .user-name-info {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+
+.menu-pointer .text-logout {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+    .user_online_box .header-user {
+        margin-top: 6px;
+        margin-bottom: 10px;
+    }
+    .user_online_box .header-user .user-features {
+        display: flex;
+        flex-direction: row;
+        margin-top: 14px;
+    }
+    .user_online_box .header-user .user-features .icon {
+        margin-top: 10%;
+    }
+    .user_online_box .header-user .user-features .icon-menu {
+        display: block;
+    }
+    .user_online_box .header-user .user-features .icon:hover {
+        background-color: #d3dada;
+    }
+    /*----------------------------*/
+    .user_online_box .list_user_box {
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        max-height: 100vh;
+        background-color: white;
+        overflow-x: hidden;
+        transition: 1s;
+        margin-top: -0.2vh;
+    }
+    .user_online_box .header-user .user-features .icon {
+        box-sizing: border-box;
+        padding: 2px;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+    .list_user_box .icon-close {
+        display: block;
+        height: 2vh;
+        margin-top: 2vh;
+        margin-right: 2vw;
+        text-align: right;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    .list_user_box .icon-close .link-close {
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: black;
+        cursor: pointer;
+    }
+    .list_user_box .list-group-item {
+        margin-top: 4%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .user_online_box .header-user .user-avatar .avatar {
+        margin-left: 5px;
+        width: 50px;
+        height: 50px;
+    }
+    .user_online_box .header-user .user-avatar .app-title {
+        font-size: 2rem;
+    }
+    .user_online_box .header-user .user-features .icon {
+        margin-top: 5%;
+    }
+    .drop-down-menu {
+        min-width: 140px;
+    }
+    .menu-pointer .user-name-info {
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+    .menu-pointer .text-logout {
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+}
