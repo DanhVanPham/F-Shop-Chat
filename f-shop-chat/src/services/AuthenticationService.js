@@ -18,6 +18,11 @@ class AuthenticationService {
         return userName;
     }
 
+    getAvatar = () => {
+        const { avatar } = JSON.parse(localStorage.getItem("account"));
+        return avatar;
+    }
+
     getUserId = () => {
         const { userId } = JSON.parse(localStorage.getItem("account"));
         return userId;

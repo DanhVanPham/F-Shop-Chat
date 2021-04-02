@@ -18,6 +18,7 @@ export const CreatePage = () => {
         automation: true,
         text: ""
     })
+    const [error, setError] = useState("");
 
     const history = useHistory();
     useEffect(() => {
@@ -59,7 +60,11 @@ export const CreatePage = () => {
 
     const onMessageReceived = (msg) => {
         if (msg.body) {
-            history.push("/chat/" + msg.body)
+            if(msg.body !== "Failed!"){
+                history.push("/chat/" + msg.body)
+            } else {
+                setError("Room is available!");
+            }
         }
     };
 
@@ -132,15 +137,19 @@ export const CreatePage = () => {
         listParticipants.push({
             userId: AuthenticationService.getUserId(),
             name: AuthenticationService.getUserName(),
-            avatar: "a"
+            avatar: AuthenticationService.getAvatar()
         })
+        const listMessages = [{
+            content: AuthenticationService.getUserName() + " đã tạo cuộc trò chuyện."
+        }]
         const room = {
             roomName: name.text,
             roomAvt: "",
-            participants: listParticipants
+            participants: listParticipants,
+            chatMessages: listMessages,
         }
 
-        stompClient.send("/app/chat/create", {}, JSON.stringify(room));
+        stompClient.send("/app/chat/create/" +  AuthenticationService.getUserId(), {}, JSON.stringify(room));
     }
 
     let modal = null;
@@ -186,8 +195,7 @@ export const CreatePage = () => {
             </div>
         </div>
         <div className="create-body-wrapper">
-            <form onSubmit={submitForm}>
-                <div className="create-body">
+            <form className="create-body" onSubmit={submitForm}>
                     <div className="input-avt-group">
                         <h3>Select Image for Group</h3>
                         <img className="defaultImage" width="200px" height="200px" src={Account} alt="default-account" />
@@ -200,8 +208,8 @@ export const CreatePage = () => {
                     </div>
                     <div className="btn-create">
                         <button type="submit" className="btn">Create</button>
+                        <p className="error">{error}</p>
                     </div>
-                </div>
             </form>
         </div>
         {display ? <div style={modalStyle}>

@@ -10,6 +10,8 @@ import Plus from '../../assets/plus.png'
 import VideoPlus from '../../assets/video-plus.png';
 import DropDown from '../../assets/menu-down.png';
 import Loading from '../../assets/loading-big.svg';
+import Like from '../../assets/like.png';
+
 let stompClient = null;
 function Drawer() {
     //state
@@ -167,13 +169,13 @@ function Drawer() {
     }
 
     const loadContent = (contact) => {
-        if(contact.chatMessages !== null && contact.chatMessages !== undefined && contact.chatMessages.length > 0){
+        if (contact.chatMessages !== null && contact.chatMessages !== undefined && contact.chatMessages.length > 0) {
             let lastedMessage = null;
             let max = 0;
             let content = "";
-            for(let message of contact.chatMessages){
+            for (let message of contact.chatMessages) {
                 let time = new Date(message.sendTime).getTime()
-                if(time > max){
+                if (time > max) {
                     max = time;
                     content = message.content;
                 }
@@ -188,14 +190,20 @@ function Drawer() {
     }
 
     const getName = (contact) => {
-        if(contact.roomName === undefined || contact.roomName === null){
+        if (contact.roomName === undefined || contact.roomName === null) {
             return false;
         }
-        if(contact.roomName === ""){
+        let name = null;
+        if (contact.roomName === "") {
             const roomName = contact.participants && contact.participants.filter(item => item.userId !== AuthenticationService.getUserId()).map(item => item.name).join(" và ")
-            return roomName;
+            name = roomName;
+        } else {
+            name = contact.roomName;
         }
-        return contact.roomName;
+
+        if (name !== null && name !== undefined) {
+            return name && name.length < 10 ? name : (name.substring(0, 10) + "...")
+        }
     }
 
     const loadSearch = async (search) => {
@@ -251,8 +259,8 @@ function Drawer() {
                     </div>
                     {isFocus ? <div style={{ 'width': '100%' }}>
                         {searchUser.length === 0 ? <div className="loading">
-                            <img src={Loading} className="loading-img" alt="Loading" width="10%"/>
-                        </div> : <div style={{'width': '100%'}}>
+                            <img src={Loading} className="loading-img" alt="Loading" width="10%" />
+                        </div> : <div style={{ 'width': '100%' }}>
                             {searchUser.map((user, index) => {
                                 return <div className="list-group-item" key={index} onClick>
                                     <div className="media">
@@ -277,7 +285,9 @@ function Drawer() {
                                                 {getName(contact)}
                                             </div>
                                             <div className="content">
-                                                {loadContent(contact)}
+                                                {loadContent(contact) !== "(y)" ? loadContent(contact) :
+                                                    <img src={Like} alt="Like" />
+                                                }
                                             </div>
                                         </div>
                                     </div>

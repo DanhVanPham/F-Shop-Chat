@@ -214,3 +214,9 @@
     text-align: center;
     font-family: 'Arsenal', sans-serif;
 }
+
+.error {
+    text-align: center;
+    font-family: 'Arsenal', sans-serif;
+    color: red;
+}

@@ -56,6 +56,10 @@ function ChatBox() {
     }
   }
 
+  const handleLike = (e) => {
+    sendMessage(e, '(y)');
+  }
+
   const connect = () => {
     const Stomp = require("stompjs");
     var SockJS = require("sockjs-client");
@@ -107,7 +111,7 @@ function ChatBox() {
       </div>
       <div>
         <form className="chat-box-input" onSubmit={e => sendMessage(e, text)}>
-          <Input value={text} onChange={e => setText(e.target.value)} />
+          <Input onSubmit={e => sendMessage(e, text)} handleLike={handleLike} value={text} onChange={e => setText(e.target.value)} />
         </form>
       </div>
     </div>
