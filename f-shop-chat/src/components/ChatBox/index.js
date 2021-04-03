@@ -63,7 +63,7 @@ function ChatBox() {
   const connect = () => {
     const Stomp = require("stompjs");
     var SockJS = require("sockjs-client");
-    SockJS = new SockJS("http://localhost:9090/ws");
+    SockJS = new SockJS("https://app-chat-backend.herokuapp.com/ws");
     stompClient = Stomp.over(SockJS);
     stompClient.connect({}, onConnected, onError);
   };
