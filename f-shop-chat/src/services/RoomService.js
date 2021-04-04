@@ -4,7 +4,7 @@ import { get, post } from "../utils/api/apiCaller";
 class RoomService {
     
     getRoom(roomId){
-        return get(BASE_URL_WEBSOCKET_SERVER, "/rooms/" + roomId, {}, {});
+        return get(BASE_URL_WEBSOCKET_SERVER, "rooms/" + roomId, {}, {});
     }
 }
 

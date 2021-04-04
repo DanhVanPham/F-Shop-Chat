@@ -3,7 +3,7 @@ import { get } from "../utils/api/apiCaller";
 
 class UserService {
     getContactUsers(userId) {
-        return get(BASE_URL_WEBSOCKET_SERVER, "/" + userId + "/rooms")
+        return get(BASE_URL_WEBSOCKET_SERVER, "" + userId + "/rooms")
     }
 }
 

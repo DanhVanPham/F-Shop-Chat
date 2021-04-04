@@ -5,7 +5,6 @@ import { Redirect } from 'react-router';
 import Loading from '../../assets/loading.svg';
 import InputField from '../InputField';
 import { useForm } from 'react-hook-form';
-
 function FormLogin(props) {
     const [loading, setLoading] = useState(false);
     const [redirect, setRedirect] = useState(false);
@@ -22,8 +21,8 @@ function FormLogin(props) {
             if (response.status === 200) {
                 const res = await AutheService.getUser(data.username);
                 if (res.status === 200) {
-                    const { userId, userName, name, avatar, roleId } = res.data;
-                    localStorage.setItem("account", JSON.stringify({ userId, userName, name, avatar, roleId }))
+                    const { userId, userName, name, avatar, roleId, gender } = res.data;
+                    localStorage.setItem("account", JSON.stringify({ userId, userName, name, avatar, roleId, gender }))
                     setRedirect(true);
                 }
             }

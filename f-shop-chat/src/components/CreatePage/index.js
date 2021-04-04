@@ -5,6 +5,7 @@ import AuthenticationService from '../../services/AuthenticationService';
 import Account from '../../assets/account.svg';
 import Close from '../../assets/close.png';
 import { useHistory } from 'react-router';
+import { BASE_URL_WEBSOCKET_SERVER } from '../../constants/url.constant';
 
 let stompClient = null;
 export const CreatePage = () => {
@@ -41,7 +42,7 @@ export const CreatePage = () => {
     const connect = () => {
         const Stomp = require("stompjs");
         var SockJS = require("sockjs-client");
-        SockJS = new SockJS("http://localhost:9090/ws");
+        SockJS = new SockJS(`${BASE_URL_WEBSOCKET_SERVER}ws`);
         stompClient = Stomp.over(SockJS);
         stompClient.connect({}, onConnected, onError);
     };

@@ -3,7 +3,8 @@ import { useHistory } from 'react-router';
 import AuthenticationService from '../../services/AuthenticationService';
 import UserService from '../../services/UserService';
 import './style.css';
-import Account from '../../assets/account.svg';
+import FemaleAvatar from '../../assets/anonymous_female.jpg';
+import MaleAvatar from '../../assets/anonymous_male.jpg';
 import Close from '../../assets/close.png';
 import Menu from '../../assets/menu.png'
 import Plus from '../../assets/plus.png'
@@ -11,6 +12,7 @@ import VideoPlus from '../../assets/video-plus.png';
 import DropDown from '../../assets/menu-down.png';
 import Loading from '../../assets/loading-big.svg';
 import Like from '../../assets/like.png';
+import { BASE_URL_WEBSOCKET_SERVER } from '../../constants/url.constant';
 
 let stompClient = null;
 function Drawer() {
@@ -68,7 +70,7 @@ function Drawer() {
     const connect = () => {
         const Stomp = require("stompjs");
         var SockJS = require("sockjs-client");
-        SockJS = new SockJS("https://app-chat-backend.herokuapp.com/ws");
+        SockJS = new SockJS(`${BASE_URL_WEBSOCKET_SERVER}ws`);
         stompClient = Stomp.over(SockJS);
         stompClient.connect({}, onConnected, onError);
     };
@@ -222,7 +224,7 @@ function Drawer() {
             <div className="user_online_box">
                 <div className="header-user">
                     <div className="user-avatar">
-                        <img src={Account} alt="user" width="50" className="avatar" />
+                        <img src={AuthenticationService.getAvatar() || (AuthenticationService.isMale() ? MaleAvatar : FemaleAvatar)} alt="user" width="50" className="avatar" />
                         <div className="app-title">Chat</div>
                     </div>
                     <div className="user-features">
@@ -264,11 +266,16 @@ function Drawer() {
                             {searchUser.map((user, index) => {
                                 return <div className="list-group-item" key={index} onClick>
                                     <div className="media">
-                                        <img src={Account} alt="user" className="avatar" />
+                                        <img src={user.roomAvt || MaleAvatar} alt="user" className="avatar" />
                                         <div className="media-body">
                                             <div className="subtitle">
                                                 {user.name}
                                             </div>
+                                        </div>
+                                        <div className="media-body">
+                                            <button style={{'width': '50%', 'float': 'right'}} className="btn btn-primary">
+                                                    Nhắn tin
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -279,7 +286,7 @@ function Drawer() {
                             {contacts.map((contact, index) => {
                                 return <div className={`list-group-item ${selectedRoom === contact.roomId ? 'active' : ''}`} key={index} onClick={e => clickHandler(e, contact.roomId)}>
                                     <div className="media">
-                                        <img src={Account} alt="user" className="avatar" />
+                                        <img src={contact.roomAvt || MaleAvatar} alt="user" className="avatar" />
                                         <div className="media-body">
                                             <div className="subtitle">
                                                 {getName(contact)}

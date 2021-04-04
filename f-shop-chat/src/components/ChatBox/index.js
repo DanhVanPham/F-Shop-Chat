@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Input from '../TextChat/index';
 import { useLocation } from 'react-router';
 import RoomService from '../../services/RoomService';
+import { BASE_URL_WEBSOCKET_SERVER } from '../../constants/url.constant';
 ChatBox.propTypes = {
   user: PropTypes.bool,
 };
@@ -63,7 +64,7 @@ function ChatBox() {
   const connect = () => {
     const Stomp = require("stompjs");
     var SockJS = require("sockjs-client");
-    SockJS = new SockJS("https://app-chat-backend.herokuapp.com/ws");
+    SockJS = new SockJS(`${BASE_URL_WEBSOCKET_SERVER}ws`);
     stompClient = Stomp.over(SockJS);
     stompClient.connect({}, onConnected, onError);
   };

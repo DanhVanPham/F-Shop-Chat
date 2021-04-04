@@ -23,6 +23,11 @@ class AuthenticationService {
         return avatar;
     }
 
+    isMale = () => {
+        const { gender } = JSON.parse(localStorage.getItem("account"));
+        return gender;
+    }
+
     getUserId = () => {
         const { userId } = JSON.parse(localStorage.getItem("account"));
         return userId;
